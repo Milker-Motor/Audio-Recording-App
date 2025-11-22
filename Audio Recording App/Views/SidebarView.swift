@@ -9,7 +9,21 @@ import SwiftUI
 
 struct SidebarView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            HStack {
+                Text("Recordings").font(.title3).bold()
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Image(systemName: "record.circle.fill")
+                        .font(.title2)
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .help("Start new recording")
+            }
+            .padding([.top, .horizontal], 12)
+        }
     }
 }
 
