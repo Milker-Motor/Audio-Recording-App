@@ -13,6 +13,7 @@
 		495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8492ED25F6600AE826F /* AppContentView.swift */; };
 		495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB84B2ED25FC900AE826F /* SidebarView.swift */; };
 		495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB84D2ED25FE200AE826F /* DetailContainerView.swift */; };
+		495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB84F2ED2628B00AE826F /* PlaceholderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		495EB8492ED25F6600AE826F /* AppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentView.swift; sourceTree = "<group>"; };
 		495EB84B2ED25FC900AE826F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		495EB84D2ED25FE200AE826F /* DetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerView.swift; sourceTree = "<group>"; };
+		495EB84F2ED2628B00AE826F /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				495EB8492ED25F6600AE826F /* AppContentView.swift */,
 				495EB84B2ED25FC900AE826F /* SidebarView.swift */,
 				495EB84D2ED25FE200AE826F /* DetailContainerView.swift */,
+				495EB84F2ED2628B00AE826F /* PlaceholderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
 				495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
+				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
