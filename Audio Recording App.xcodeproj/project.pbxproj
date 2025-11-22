@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */; };
-		491C61362ECFCFAD00AFF4E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C61352ECFCFAD00AFF4E2 /* ContentView.swift */; };
 		491C61382ECFCFB000AFF4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C61372ECFCFB000AFF4E2 /* Assets.xcassets */; };
 		491C613B2ECFCFB000AFF4E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C613A2ECFCFB000AFF4E2 /* Preview Assets.xcassets */; };
+		495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8492ED25F6600AE826F /* AppContentView.swift */; };
+		495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB84B2ED25FC900AE826F /* SidebarView.swift */; };
+		495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB84D2ED25FE200AE826F /* DetailContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		491C61302ECFCFAD00AFF4E2 /* Audio Recording App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio Recording App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio_Recording_AppApp.swift; sourceTree = "<group>"; };
-		491C61352ECFCFAD00AFF4E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		491C61372ECFCFB000AFF4E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491C613A2ECFCFB000AFF4E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		491C613C2ECFCFB000AFF4E2 /* Audio_Recording_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Audio_Recording_App.entitlements; sourceTree = "<group>"; };
+		495EB8492ED25F6600AE826F /* AppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentView.swift; sourceTree = "<group>"; };
+		495EB84B2ED25FC900AE826F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		495EB84D2ED25FE200AE826F /* DetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */,
-				491C61352ECFCFAD00AFF4E2 /* ContentView.swift */,
+				495EB8482ED25F2D00AE826F /* Views */,
 				491C61372ECFCFB000AFF4E2 /* Assets.xcassets */,
 				491C613C2ECFCFB000AFF4E2 /* Audio_Recording_App.entitlements */,
 				491C61392ECFCFB000AFF4E2 /* Preview Content */,
@@ -67,6 +71,16 @@
 				491C613A2ECFCFB000AFF4E2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		495EB8482ED25F2D00AE826F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				495EB8492ED25F6600AE826F /* AppContentView.swift */,
+				495EB84B2ED25FC900AE826F /* SidebarView.swift */,
+				495EB84D2ED25FE200AE826F /* DetailContainerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491C61362ECFCFAD00AFF4E2 /* ContentView.swift in Sources */,
+				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
+				495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
+				495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
