@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct DetailContainerView: View {
+    let viewModel: Recordable
     var body: some View {
         Group {
-            PlaceholderView()
+            PlaceholderView(viewModel: viewModel)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

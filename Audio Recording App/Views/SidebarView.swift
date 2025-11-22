@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SidebarView: View {
+    let viewModel: Recordable
     var body: some View {
         VStack(spacing: 0) {
             HStack {
                 Text("Recordings").font(.title3).bold()
                 Spacer()
                 Button {
-                    
+                    viewModel.startNewRecording()
                 } label: {
                     Image(systemName: "record.circle.fill")
                         .font(.title2)
@@ -25,8 +26,4 @@ struct SidebarView: View {
             .padding([.top, .horizontal], 12)
         }
     }
-}
-
-#Preview {
-    SidebarView()
 }

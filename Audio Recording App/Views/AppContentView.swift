@@ -11,20 +11,20 @@ struct AppContentView: View {
     var body: some View {
         if #available(macOS 13.0, *) {
             NavigationSplitView {
-                SidebarView()
+                SidebarView(viewModel: viewModel.recordable)
             } detail: {
-                DetailContainerView()
+                DetailContainerView(viewModel: viewModel.recordable)
             }
         } else {
             NavigationView {
-                SidebarView()
-                DetailContainerView()
+                SidebarView(viewModel: viewModel.recordable)
+                DetailContainerView(viewModel: viewModel.recordable)
             }
             .frame(minWidth: 800, minHeight: 600)
         }
     }
-}
-
-#Preview {
-    AppContentView()
+    
+    @StateObject private var viewModel = RecordingViewModel(
+        recordable: RecordingManager()
+    )
 }
