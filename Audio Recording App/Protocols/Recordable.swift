@@ -10,3 +10,13 @@ import Foundation
 protocol Recordable {
     func startNewRecording()
 }
+
+final class RecordingState: ObservableObject {
+    @Published var mode: DetailMode = .none
+}
+
+public enum DetailMode: Equatable {
+    case none
+    case recording
+    case playback
+}

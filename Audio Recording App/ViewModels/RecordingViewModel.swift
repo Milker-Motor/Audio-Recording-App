@@ -9,8 +9,10 @@ import SwiftUI
 
 final class RecordingViewModel: ObservableObject {
     let recordable: Recordable
+    let state: RecordingState
     
-    init(recordable: Recordable) {
+    init(recordable: Recordable, state: RecordingState) {
         self.recordable = recordable
+        self.state = state
     }
 }

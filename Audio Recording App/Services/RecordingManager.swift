@@ -5,14 +5,17 @@
 //  Created by Oleksii Lytvynov-Bohdanov on 22.11.2025.
 //
 
-import Foundation
+import SwiftUI
 
-final class RecordingManager {
-    
+final class RecordingManager: ObservableObject {
+    @ObservedObject private(set) var state: RecordingState
+    init(state: RecordingState) {
+        self.state = state
+    }
 }
 
 extension RecordingManager: Recordable {
     func startNewRecording() {
-        print("start new record")
+        state.mode = .recording
     }
 }

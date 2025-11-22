@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Audio_Recording_AppApp: App {
+    let state = RecordingState()
+    
+    
     var body: some Scene {
+        let recordingManager = RecordingManager(state: state)
         WindowGroup {
-            AppContentView()
+            AppContentView(recordable: recordingManager, recordingState: state)
         }
     }
 }
