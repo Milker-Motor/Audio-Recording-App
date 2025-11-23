@@ -19,7 +19,7 @@ struct DetailContainerView: View {
         Group {
             switch viewModel.recordingStatable.mode {
             case .none:
-                PlaceholderView(viewModel: viewModel.recordable)
+                PlaceholderView(viewModel: PlaceholderViewModel(recordable: viewModel.recordable))
             case .recording:
                 RecordingPanelView(viewModel: RecordingPanelViewModel(recordableState: viewModel.recordingStatable))
             case .playback:

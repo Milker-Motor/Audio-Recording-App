@@ -17,13 +17,13 @@ struct AppContentView: View {
     var body: some View {
         if #available(macOS 13.0, *) {
             NavigationSplitView {
-                SidebarView(viewModel: viewModel.recordable)
+                SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
             } detail: {
                 DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, state: viewModel.state))
             }
         } else {
             NavigationView {
-                SidebarView(viewModel: viewModel.recordable)
+                SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
                 DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, state: viewModel.state))
             }
             .frame(minWidth: 800, minHeight: 600)

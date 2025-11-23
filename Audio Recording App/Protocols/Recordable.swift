@@ -8,12 +8,24 @@
 import Foundation
 
 protocol Recordable {
-    func startNewRecording()
+    func startNewRecording() throws
 }
 
 class RecordingState: ObservableObject {
-    @Published var mode: DetailMode = .none
-    @Published var isPaused: Bool = false
+    @Published var mode: DetailMode
+    @Published var isPaused: Bool
+    
+    let format: AudioFormat
+    let sampleRate: Double
+    let url: (String) -> URL
+    
+    init(mode: DetailMode = .none, isPaused: Bool = false, format: AudioFormat, sampleRate: Double, url: @escaping (String) -> URL) {
+        self.mode = mode
+        self.isPaused = isPaused
+        self.format = format
+        self.sampleRate = sampleRate
+        self.url = url
+    }
 }
 
 public enum DetailMode: Equatable {

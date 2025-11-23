@@ -20,6 +20,10 @@
 		495EB85B2ED26D0000AE826F /* RecordingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */; };
 		495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */; };
 		495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */; };
+		495EB8612ED35DBE00AE826F /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8602ED35DBE00AE826F /* AudioRecorder.swift */; };
+		495EB8632ED3687A00AE826F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8622ED3687900AE826F /* Models.swift */; };
+		495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */; };
+		495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanelView.swift; sourceTree = "<group>"; };
 		495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanelViewModel.swift; sourceTree = "<group>"; };
 		495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerViewModel.swift; sourceTree = "<group>"; };
+		495EB8602ED35DBE00AE826F /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		495EB8622ED3687900AE826F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewModel.swift; sourceTree = "<group>"; };
+		495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */,
+				495EB8622ED3687900AE826F /* Models.swift */,
 				495EB8572ED268A600AE826F /* Services */,
 				495EB8542ED2680300AE826F /* ViewModels */,
 				495EB8512ED2656600AE826F /* Protocols */,
@@ -116,6 +125,8 @@
 				495EB8552ED2681300AE826F /* RecordingViewModel.swift */,
 				495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */,
 				495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */,
+				495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */,
+				495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				495EB8582ED268BB00AE826F /* RecordingManager.swift */,
+				495EB8602ED35DBE00AE826F /* AudioRecorder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -199,11 +211,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
+				495EB8632ED3687A00AE826F /* Models.swift in Sources */,
+				495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */,
 				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
 				495EB8592ED268BB00AE826F /* RecordingManager.swift in Sources */,
 				495EB85B2ED26D0000AE826F /* RecordingPanelView.swift in Sources */,
 				495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */,
 				495EB8562ED2681300AE826F /* RecordingViewModel.swift in Sources */,
+				495EB8612ED35DBE00AE826F /* AudioRecorder.swift in Sources */,
+				495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
