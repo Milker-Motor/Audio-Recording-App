@@ -5,18 +5,21 @@
 //  Created by Oleksii Lytvynov-Bohdanov on 23.11.2025.
 //
 
-import Foundation
+import SwiftUI
 
 final class RecordingPanelViewModel: ObservableObject {
-    @Published private(set) var timer: String
-    private let recordableState: RecordingState
+    @ObservedObject private(set) var recordableState: RecordingState
     
-    init(timer: String = "00:00", recordableState: RecordingState) {
-        self.timer = timer
+    init(recordableState: RecordingState) {
         self.recordableState = recordableState
     }
     
     var isPaused: Bool {
         recordableState.isPaused
+    }
+    
+    var timer: String {
+        let duration = recordableState.secondsPlayback
+        return String(format: "%02d:%02d", duration / 60, duration % 60)
     }
 }

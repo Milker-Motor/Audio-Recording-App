@@ -9,6 +9,7 @@ import SwiftUI
 
 final class RecordingManager: ObservableObject {
     @ObservedObject private(set) var state: RecordingState
+    
     let audioRecorder: AudioRecorderProtocol
     init(audioRecorder: AudioRecorderProtocol, state: RecordingState) {
         self.state = state
@@ -18,7 +19,7 @@ final class RecordingManager: ObservableObject {
 
 extension RecordingManager: Recordable {
     func startNewRecording() throws {
-        state.mode = .recording
+        try state.startNewRecording()
         try audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
     }
 }
