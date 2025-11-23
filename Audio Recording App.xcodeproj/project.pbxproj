@@ -25,6 +25,8 @@
 		495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */; };
 		495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */; };
 		495EB86A2ED3BCB800AE826F /* RecordingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8692ED3BCB800AE826F /* RecordingState.swift */; };
+		495EB86E2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 495EB86C2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodeld */; };
+		495EB8702ED3C22300AE826F /* RecordingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB86F2ED3C22300AE826F /* RecordingItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewModel.swift; sourceTree = "<group>"; };
 		495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
 		495EB8692ED3BCB800AE826F /* RecordingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingState.swift; sourceTree = "<group>"; };
+		495EB86D2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioRecorderModel.xcdatamodel; sourceTree = "<group>"; };
+		495EB86F2ED3C22300AE826F /* RecordingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +151,18 @@
 			children = (
 				495EB8622ED3687900AE826F /* AppError.swift */,
 				495EB8692ED3BCB800AE826F /* RecordingState.swift */,
+				495EB86B2ED3C0AD00AE826F /* CoreData */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		495EB86B2ED3C0AD00AE826F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				495EB86C2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodeld */,
+				495EB86F2ED3C22300AE826F /* RecordingItem.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +245,11 @@
 				495EB8562ED2681300AE826F /* RecordingViewModel.swift in Sources */,
 				495EB8612ED35DBE00AE826F /* AudioRecorder.swift in Sources */,
 				495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */,
+				495EB86E2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodeld in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
+				495EB8702ED3C22300AE826F /* RecordingItem.swift in Sources */,
 				495EB86A2ED3BCB800AE826F /* RecordingState.swift in Sources */,
 				495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */,
 				495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */,
@@ -439,6 +455,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		495EB86C2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				495EB86D2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodel */,
+			);
+			currentVersion = 495EB86D2ED3C0BE00AE826F /* AudioRecorderModel.xcdatamodel */;
+			name = AudioRecorderModel.xcdatamodeld;
+			path = "/Users/oleksii/Documents/ios/Test_tasks/Audio-Recording-App/Audio Recording App/Models/CoreData/AudioRecorderModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 491C61282ECFCFAD00AFF4E2 /* Project object */;
 }
