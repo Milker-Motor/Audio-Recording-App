@@ -9,6 +9,7 @@ import Foundation
 
 protocol Recordable {
     func startNewRecording() throws
+    func stopRecording()
 }
 
 class RecordingState: ObservableObject {
@@ -42,6 +43,11 @@ extension RecordingState: Recordable {
         mode = .recording
         secondsPlayback = 0
         startStopwatch()
+    }
+    
+    func stopRecording() {
+        mode = .playback
+        stopwatchTimer?.invalidate()
     }
     
     private func startStopwatch() {

@@ -37,4 +37,9 @@ extension RecordingPanelViewModel: Recordable {
             }
         }
     }
+    
+    func stopRecording() {
+        recordable.stopRecording()
+        
+    }
 }

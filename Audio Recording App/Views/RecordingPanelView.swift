@@ -32,7 +32,7 @@ struct RecordingPanelView: View {
                 .keyboardShortcut(.space, modifiers: [])
 
                 Button {
-                    print("Stop")
+                    viewModel.stopRecording()
                 } label: {
                     Label("Stop", systemImage: "stop.fill").font(.title3)
                 }

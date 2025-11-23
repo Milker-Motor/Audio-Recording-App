@@ -22,4 +22,9 @@ extension RecordingManager: Recordable {
         try state.startNewRecording()
         try audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
     }
+    
+    func stopRecording() {
+        state.stopRecording()
+        audioRecorder.stopRecording()
+    }
 }

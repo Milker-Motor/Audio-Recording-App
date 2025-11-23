@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct PlaceholderView: View {
-    let viewModel: Recordable
+    let viewModel: PlaceholderViewModel
     
     var body: some View {
         VStack(spacing: 12) {
-            Button(action: {
-                try? viewModel.startNewRecording()
-            }) {
+            Button(action: viewModel.onPlay) {
                 Image(systemName: "mic.circle")
                     .resizable()
                     .frame(width: 72, height: 72)
