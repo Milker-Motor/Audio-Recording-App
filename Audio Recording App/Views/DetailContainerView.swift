@@ -31,7 +31,7 @@ struct DetailContainerView: View {
             case .none:
                 PlaceholderView(viewModel: viewModel.recordable)
             case .recording:
-                RecordingPanel()
+                RecordingPanelView(viewModel: RecordingPanelViewModel())
             case .playback:
                 Text("Replace me")
             }

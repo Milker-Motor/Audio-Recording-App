@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct RecordingPanel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+final class RecordingPanelViewModel: ObservableObject {
+    @Published private(set) var timer: String = "00:00"
 }
 
-#Preview {
-    RecordingPanel()
+struct RecordingPanelView: View {
+    @ObservedObject var viewModel: RecordingPanelViewModel
+    var body: some View {
+        VStack(spacing: 28) {
+            HStack {
+                Text("Recording…").font(.title2).bold()
+                Spacer()
+                HStack(spacing: 6) {
+                    Circle().foregroundStyle(.red).frame(width: 10, height: 10)
+                    Text("LIVE").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                }
+            }
+            Text(viewModel.timer)
+                .font(.system(size: 48, weight: .semibold, design: .monospaced))
+                .monospacedDigit()
+        }
+        .padding(28)
+    }
 }
