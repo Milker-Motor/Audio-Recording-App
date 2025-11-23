@@ -19,9 +19,9 @@ struct DetailContainerView: View {
         Group {
             switch viewModel.recordingStatable.mode {
             case .none:
-                PlaceholderView(viewModel: PlaceholderViewModel(recordable: viewModel.recordable))
+                PlaceholderView(viewModel: PlaceholderViewModel(recordingState: viewModel.recordingStatable))
             case .recording:
-                RecordingPanelView(viewModel: RecordingPanelViewModel(recordableState: viewModel.recordingStatable))
+                RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, recordableState: viewModel.recordingStatable))
             case .playback:
                 Text("Replace me")
             }

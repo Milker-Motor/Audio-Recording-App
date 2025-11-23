@@ -32,7 +32,6 @@ struct RecordingPanelView: View {
                 .keyboardShortcut(.space, modifiers: [])
 
                 Button {
-                    
                     print("Stop")
                 } label: {
                     Label("Stop", systemImage: "stop.fill").font(.title3)
@@ -47,5 +46,15 @@ struct RecordingPanelView: View {
             Spacer()
         }
         .padding(28)
+        .alert(item: $viewModel.uiError) { error in
+            Alert(
+                title: Text("Error"),
+                message: Text(error.localizedDescription),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+        .onAppear {
+            try? viewModel.startNewRecording()
+        }
     }
 }

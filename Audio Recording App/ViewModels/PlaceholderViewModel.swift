@@ -8,20 +8,14 @@
 import Foundation
 
 final class PlaceholderViewModel: ObservableObject {
-    @Published var uiError: AppError?
-    
-    func startNewRecording() {
-        do {
-            try recordable.startNewRecording()
-        } catch {
-            Task { @MainActor in
-                self.uiError = .recordingFailed(error.localizedDescription)
-            }
-        }
+    var recordingState: RecordingState
+    init(recordingState: RecordingState) {
+        self.recordingState = recordingState
     }
-    
-    private let recordable: Recordable
-    init(recordable: Recordable) {
-        self.recordable = recordable
+}
+
+extension PlaceholderViewModel: Recordable {
+    func startNewRecording() throws {
+        recordingState.mode = .recording
     }
 }

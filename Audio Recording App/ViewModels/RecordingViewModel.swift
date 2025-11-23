@@ -11,6 +11,8 @@ final class RecordingViewModel: ObservableObject {
     let recordable: Recordable
     let state: RecordingState
     
+    @Published var uiError: AppError?
+    
     init(recordable: Recordable, state: RecordingState) {
         self.recordable = recordable
         self.state = state

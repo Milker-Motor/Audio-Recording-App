@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PlaceholderView: View {
-    @ObservedObject var viewModel: PlaceholderViewModel
+    let viewModel: Recordable
     
     var body: some View {
         VStack(spacing: 12) {
-            Button(action: viewModel.startNewRecording) {
+            Button(action: {
+                try? viewModel.startNewRecording()
+            }) {
                 Image(systemName: "mic.circle")
                     .resizable()
                     .frame(width: 72, height: 72)
@@ -24,12 +26,5 @@ struct PlaceholderView: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .alert(item: $viewModel.uiError) { error in
-            Alert(
-                title: Text("Error"),
-                message: Text(error.localizedDescription),
-                dismissButton: .default(Text("OK"))
-            )
-        }
     }
 }
