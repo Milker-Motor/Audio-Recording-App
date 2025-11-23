@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-final class RecordingPanelViewModel: ObservableObject {
-    @Published private(set) var timer: String = "00:00"
-}
-
 struct RecordingPanelView: View {
     @ObservedObject var viewModel: RecordingPanelViewModel
     var body: some View {

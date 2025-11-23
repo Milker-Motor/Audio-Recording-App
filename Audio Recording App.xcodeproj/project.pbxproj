@@ -17,7 +17,9 @@
 		495EB8532ED2657B00AE826F /* Recordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8522ED2657B00AE826F /* Recordable.swift */; };
 		495EB8562ED2681300AE826F /* RecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8552ED2681300AE826F /* RecordingViewModel.swift */; };
 		495EB8592ED268BB00AE826F /* RecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8582ED268BB00AE826F /* RecordingManager.swift */; };
-		495EB85B2ED26D0000AE826F /* RecordingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85A2ED26D0000AE826F /* RecordingPanel.swift */; };
+		495EB85B2ED26D0000AE826F /* RecordingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */; };
+		495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */; };
+		495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +35,9 @@
 		495EB8522ED2657B00AE826F /* Recordable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recordable.swift; sourceTree = "<group>"; };
 		495EB8552ED2681300AE826F /* RecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewModel.swift; sourceTree = "<group>"; };
 		495EB8582ED268BB00AE826F /* RecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingManager.swift; sourceTree = "<group>"; };
-		495EB85A2ED26D0000AE826F /* RecordingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanel.swift; sourceTree = "<group>"; };
+		495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanelView.swift; sourceTree = "<group>"; };
+		495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanelViewModel.swift; sourceTree = "<group>"; };
+		495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,7 @@
 				495EB84B2ED25FC900AE826F /* SidebarView.swift */,
 				495EB84D2ED25FE200AE826F /* DetailContainerView.swift */,
 				495EB84F2ED2628B00AE826F /* PlaceholderView.swift */,
-				495EB85A2ED26D0000AE826F /* RecordingPanel.swift */,
+				495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				495EB8552ED2681300AE826F /* RecordingViewModel.swift */,
+				495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */,
+				495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -193,14 +199,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
+				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
 				495EB8592ED268BB00AE826F /* RecordingManager.swift in Sources */,
-				495EB85B2ED26D0000AE826F /* RecordingPanel.swift in Sources */,
+				495EB85B2ED26D0000AE826F /* RecordingPanelView.swift in Sources */,
 				495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */,
 				495EB8562ED2681300AE826F /* RecordingViewModel.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
 				495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */,
+				495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

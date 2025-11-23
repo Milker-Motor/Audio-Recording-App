@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-final class DetailContainerViewModel: ObservableObject {
-    private(set) var recordable: Recordable
-    private(set) var recordingStatable: RecordingState
-    
-    init(recordable: Recordable, state: RecordingState) {
-        self.recordable = recordable
-        self.recordingStatable = state
-    }
-}
-
 struct DetailContainerView: View {
     let viewModel: DetailContainerViewModel
     @ObservedObject var recordingState: RecordingState
