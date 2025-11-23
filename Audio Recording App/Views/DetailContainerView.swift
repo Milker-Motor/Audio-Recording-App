@@ -11,9 +11,9 @@ struct DetailContainerView: View {
     let viewModel: DetailContainerViewModel
     @ObservedObject var recordingState: RecordingState
     init(viewModel: DetailContainerViewModel) {
-            self.viewModel = viewModel
-            self.recordingState = viewModel.recordingStatable
-        }
+        self.viewModel = viewModel
+        self.recordingState = viewModel.recordingStatable
+    }
     
     var body: some View {
         Group {
@@ -21,7 +21,7 @@ struct DetailContainerView: View {
             case .none:
                 PlaceholderView(viewModel: viewModel.recordable)
             case .recording:
-                RecordingPanelView(viewModel: RecordingPanelViewModel())
+                RecordingPanelView(viewModel: RecordingPanelViewModel(recordableState: viewModel.recordingStatable))
             case .playback:
                 Text("Replace me")
             }

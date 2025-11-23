@@ -22,6 +22,28 @@ struct RecordingPanelView: View {
             Text(viewModel.timer)
                 .font(.system(size: 48, weight: .semibold, design: .monospaced))
                 .monospacedDigit()
+            HStack(spacing: 28) {
+                Button {
+                    print(viewModel.isPaused ? "Resume" : "Pause")
+                } label: {
+                    Label(viewModel.isPaused ? "Resume" : "Pause", systemImage: viewModel.isPaused ? "play.fill" : "pause.fill")
+                        .font(.title3)
+                }
+                .keyboardShortcut(.space, modifiers: [])
+
+                Button {
+                    print("Stop")
+                } label: {
+                    Label("Stop", systemImage: "stop.fill").font(.title3)
+                }
+                .keyboardShortcut(.init("s"), modifiers: [])
+
+                Spacer()
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+
+            Spacer()
         }
         .padding(28)
     }

@@ -8,5 +8,15 @@
 import Foundation
 
 final class RecordingPanelViewModel: ObservableObject {
-    @Published private(set) var timer: String = "00:00"
+    @Published private(set) var timer: String
+    private let recordableState: RecordingState
+    
+    init(timer: String = "00:00", recordableState: RecordingState) {
+        self.timer = timer
+        self.recordableState = recordableState
+    }
+    
+    var isPaused: Bool {
+        recordableState.isPaused
+    }
 }

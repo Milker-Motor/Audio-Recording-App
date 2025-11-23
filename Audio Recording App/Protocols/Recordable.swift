@@ -11,8 +11,9 @@ protocol Recordable {
     func startNewRecording()
 }
 
-final class RecordingState: ObservableObject {
+class RecordingState: ObservableObject {
     @Published var mode: DetailMode = .none
+    @Published var isPaused: Bool = false
 }
 
 public enum DetailMode: Equatable {
