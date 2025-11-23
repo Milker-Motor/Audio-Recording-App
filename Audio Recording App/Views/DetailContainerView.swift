@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+public enum DetailMode: Equatable {
+    case none
+    case recording
+    case playback
+}
+
 struct DetailContainerView: View {
     let viewModel: DetailContainerViewModel
     @ObservedObject var recordingState: RecordingState
@@ -17,7 +23,7 @@ struct DetailContainerView: View {
     
     var body: some View {
         Group {
-            switch viewModel.recordingStatable.mode {
+            switch viewModel.mode {
             case .none:
                 PlaceholderView(viewModel: PlaceholderViewModel(recordingState: viewModel.recordingStatable))
             case .recording:

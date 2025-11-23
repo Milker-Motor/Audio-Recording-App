@@ -24,7 +24,7 @@ struct RecordingPanelView: View {
                 .monospacedDigit()
             HStack(spacing: 28) {
                 Button {
-                    print(viewModel.isPaused ? "Resume" : "Pause")
+                    viewModel.togglePauseResumeRecording()
                 } label: {
                     Label(viewModel.isPaused ? "Resume" : "Pause", systemImage: viewModel.isPaused ? "play.fill" : "pause.fill")
                         .font(.title3)

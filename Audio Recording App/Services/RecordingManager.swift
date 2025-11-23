@@ -27,4 +27,14 @@ extension RecordingManager: Recordable {
         state.stopRecording()
         audioRecorder.stopRecording()
     }
+    
+    func pauseRecording() {
+        state.pauseRecording()
+        audioRecorder.pauseRecording()
+    }
+    
+    func resumeRecording() {
+        state.resumeRecording()
+        audioRecorder.resumeRecording()
+    }
 }

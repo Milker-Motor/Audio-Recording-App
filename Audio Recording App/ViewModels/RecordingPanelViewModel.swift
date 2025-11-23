@@ -18,12 +18,20 @@ final class RecordingPanelViewModel: ObservableObject {
     }
     
     var isPaused: Bool {
-        recordableState.isPaused
+        recordableState.state == .paused
     }
     
     var timer: String {
         let duration = recordableState.secondsPlayback
         return String(format: "%02d:%02d", duration / 60, duration % 60)
+    }
+    
+    func togglePauseResumeRecording() {
+        if isPaused {
+            recordable.resumeRecording()
+        } else {
+            recordable.pauseRecording()
+        }
     }
 }
 
@@ -40,6 +48,13 @@ extension RecordingPanelViewModel: Recordable {
     
     func stopRecording() {
         recordable.stopRecording()
-        
+    }
+    
+    func resumeRecording() {
+        recordable.resumeRecording()
+    }
+    
+    func pauseRecording() {
+        recordable.pauseRecording()
     }
 }

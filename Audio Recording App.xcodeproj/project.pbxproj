@@ -21,9 +21,10 @@
 		495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */; };
 		495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */; };
 		495EB8612ED35DBE00AE826F /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8602ED35DBE00AE826F /* AudioRecorder.swift */; };
-		495EB8632ED3687A00AE826F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8622ED3687900AE826F /* Models.swift */; };
+		495EB8632ED3687A00AE826F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8622ED3687900AE826F /* AppError.swift */; };
 		495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */; };
 		495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */; };
+		495EB86A2ED3BCB800AE826F /* RecordingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8692ED3BCB800AE826F /* RecordingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +44,10 @@
 		495EB85C2ED35A3D00AE826F /* RecordingPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingPanelViewModel.swift; sourceTree = "<group>"; };
 		495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContainerViewModel.swift; sourceTree = "<group>"; };
 		495EB8602ED35DBE00AE826F /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
-		495EB8622ED3687900AE826F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		495EB8622ED3687900AE826F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewModel.swift; sourceTree = "<group>"; };
 		495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
+		495EB8692ED3BCB800AE826F /* RecordingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */,
-				495EB8622ED3687900AE826F /* Models.swift */,
+				495EB8682ED3BC9700AE826F /* Models */,
 				495EB8572ED268A600AE826F /* Services */,
 				495EB8542ED2680300AE826F /* ViewModels */,
 				495EB8512ED2656600AE826F /* Protocols */,
@@ -138,6 +140,15 @@
 				495EB8602ED35DBE00AE826F /* AudioRecorder.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		495EB8682ED3BC9700AE826F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				495EB8622ED3687900AE826F /* AppError.swift */,
+				495EB8692ED3BCB800AE826F /* RecordingState.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
-				495EB8632ED3687A00AE826F /* Models.swift in Sources */,
+				495EB8632ED3687A00AE826F /* AppError.swift in Sources */,
 				495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */,
 				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
 				495EB8592ED268BB00AE826F /* RecordingManager.swift in Sources */,
@@ -223,6 +234,7 @@
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
+				495EB86A2ED3BCB800AE826F /* RecordingState.swift in Sources */,
 				495EB84C2ED25FC900AE826F /* SidebarView.swift in Sources */,
 				495EB85F2ED35A5E00AE826F /* DetailContainerViewModel.swift in Sources */,
 			);
