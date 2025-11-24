@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SidebarView: View {
-    let viewModel: SidebarViewModel
+    @ObservedObject var viewModel: SidebarViewModel
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -23,7 +23,7 @@ struct SidebarView: View {
             }
             .padding([.top, .horizontal], 12)
             
-            List {
+            List(selection: $viewModel.selectedRecording) {
                 ForEach(viewModel.recordings) { item in
                     RecordingRow(item: item)
                         .tag(item)

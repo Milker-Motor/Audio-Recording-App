@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491958582ED519D1004C6F44 /* PlaybackPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491958572ED519D1004C6F44 /* PlaybackPanelView.swift */; };
+		4919585A2ED51B06004C6F44 /* PlaybackPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491958592ED51B06004C6F44 /* PlaybackPanelViewModel.swift */; };
 		491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */; };
 		491C61382ECFCFB000AFF4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C61372ECFCFB000AFF4E2 /* Assets.xcassets */; };
 		491C613B2ECFCFB000AFF4E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C613A2ECFCFB000AFF4E2 /* Preview Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491958572ED519D1004C6F44 /* PlaybackPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPanelView.swift; sourceTree = "<group>"; };
+		491958592ED51B06004C6F44 /* PlaybackPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPanelViewModel.swift; sourceTree = "<group>"; };
 		491C61302ECFCFAD00AFF4E2 /* Audio Recording App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio Recording App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio_Recording_AppApp.swift; sourceTree = "<group>"; };
 		491C61372ECFCFB000AFF4E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				495EB84D2ED25FE200AE826F /* DetailContainerView.swift */,
 				495EB84F2ED2628B00AE826F /* PlaceholderView.swift */,
 				495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */,
+				491958572ED519D1004C6F44 /* PlaybackPanelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				495EB85E2ED35A5E00AE826F /* DetailContainerViewModel.swift */,
 				495EB8642ED368F800AE826F /* PlaceholderViewModel.swift */,
 				495EB8662ED36B3C00AE826F /* SidebarViewModel.swift */,
+				491958592ED51B06004C6F44 /* PlaybackPanelViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -283,7 +289,9 @@
 				495EB8742ED3C9ED00AE826F /* CoreDataHelpers.swift in Sources */,
 				495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */,
 				495EB86E2ED3C0BE00AE826F /* CoreDataRecordingStore.xcdatamodeld in Sources */,
+				491958582ED519D1004C6F44 /* PlaybackPanelView.swift in Sources */,
 				495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */,
+				4919585A2ED51B06004C6F44 /* PlaybackPanelViewModel.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,

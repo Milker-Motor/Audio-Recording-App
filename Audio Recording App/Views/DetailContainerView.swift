@@ -10,7 +10,7 @@ import SwiftUI
 enum DetailMode: Equatable {
     case none
     case recording
-    case playback
+    case playback(RecordingRowItem)
 }
 
 struct DetailContainerView: View {
@@ -31,8 +31,8 @@ struct DetailContainerView: View {
                 PlaceholderView(viewModel: placeholderViewModel)
             case .recording:
                 RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, recordableState: viewModel.recordingStatable))
-            case .playback:
-                Text("Replace me")
+            case let .playback(item):
+                PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

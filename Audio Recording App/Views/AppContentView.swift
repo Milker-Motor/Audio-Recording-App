@@ -20,10 +20,12 @@ struct AppContentView: View {
         
         let sidebarViewModel = SidebarViewModel(dataStore: viewModel.dataStore) {
             detailContainerViewModel.detailMode = .recording
+        } onSelect: { item in
+            detailContainerViewModel.detailMode = .playback(item)
         }
+
         let sidebarView = SidebarView(viewModel: sidebarViewModel)
         
-
         if #available(macOS 13.0, *) {
             NavigationSplitView {
                 sidebarView

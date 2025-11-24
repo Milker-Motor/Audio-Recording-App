@@ -11,9 +11,14 @@ struct RecordingRowItem: Hashable, Identifiable {
     let id: UUID = UUID()
     
     let name: String
-    let duration: String
+    let durationInSeconds: Int
     let date: String
-    let fileExist: Bool
+    let url: URL?
+    
+    var duration: String {
+        String(format: "%02d:%02d", durationInSeconds / 60, durationInSeconds % 60)
+    }
+    var fileExist: Bool { url != nil }
 }
 
 struct RecordingRow: View {
@@ -30,7 +35,6 @@ struct RecordingRow: View {
                 .font(.caption).foregroundStyle(.secondary)
             }
             Spacer()
-            Image(systemName: "square.and.arrow.up").foregroundStyle(.secondary).opacity(item.fileExist ? 1.0 : 0.25)
         }
         .padding(.vertical, 8)
     }
