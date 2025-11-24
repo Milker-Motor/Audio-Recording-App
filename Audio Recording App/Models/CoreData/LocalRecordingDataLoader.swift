@@ -19,8 +19,13 @@ extension LocalRecordingDataLoader: RecordingDataStore {
         try store.insert(item)
     }
     
-    
+    func fetchAll() async throws -> [RecordingItem] {
+        try await store.fetchAll()
+    }
 }
+
+
+
 
 //protocol RecordingCache {
 //    func insert(_ recordig: RecordingItem) async throws

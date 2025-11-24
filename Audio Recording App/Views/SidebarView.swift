@@ -22,6 +22,17 @@ struct SidebarView: View {
                 .help("Start new recording")
             }
             .padding([.top, .horizontal], 12)
+            
+            List {
+                ForEach(viewModel.recordings) { item in
+                    RecordingRow(item: item)
+                        .tag(item)
+                        .contextMenu {
+                            Button("Delete", role: .destructive) { }
+                        }
+                }
+            }
+            .listStyle(.inset)
         }
     }
 }

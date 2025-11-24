@@ -80,5 +80,14 @@ extension CoreDataRecordingStore: RecordingDataStore {
         }
     }
     
-    
+    func fetchAll() async throws -> [RecordingItem] {
+        var items = [RecordingItem]()
+        try perform { context in
+            let request = NSFetchRequest<RecordingItem>(entityName: RecordingItem.entity().name!)
+            request.returnsObjectsAsFaults = false
+            
+            items = try context.fetch(request)
+        }
+        return items
+    }
 }

@@ -13,7 +13,7 @@ class RecordingItem: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var createdAt: Date
     @NSManaged var duration: Int64
-    @NSManaged var fileURL: URL
+    @NSManaged var fileURL: URL?
     @NSManaged var fileSize: Int64
     @NSManaged var format: String
 }

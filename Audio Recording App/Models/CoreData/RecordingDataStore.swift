@@ -9,4 +9,5 @@ import Foundation
 
 protocol RecordingDataStore {
     func insert(_ item: LocalRecordingItem) throws
+    func fetchAll() async throws -> [RecordingItem] 
 }

@@ -18,7 +18,7 @@ struct AppContentView: View {
         let detailContainerViewModel = DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state, detailMode: .none)
         let detailContainerView = DetailContainerView(viewModel: detailContainerViewModel)
         
-        let sidebarViewModel = SidebarViewModel {
+        let sidebarViewModel = SidebarViewModel(dataStore: viewModel.dataStore) {
             detailContainerViewModel.detailMode = .recording
         }
         let sidebarView = SidebarView(viewModel: sidebarViewModel)

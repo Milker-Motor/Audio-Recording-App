@@ -36,6 +36,7 @@
 		495EB8842ED3D75A00AE826F /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8832ED3D75A00AE826F /* Fetcher.swift */; };
 		495EB8862ED3D7EC00AE826F /* FetcherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */; };
 		495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8882ED48C0D00AE826F /* PermissionService.swift */; };
+		496D3EB32ED50F2D007F014C /* RecordingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D3EB22ED50F2D007F014C /* RecordingRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		495EB8832ED3D75A00AE826F /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherEntity.swift; sourceTree = "<group>"; };
 		495EB8882ED48C0D00AE826F /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
+		496D3EB22ED50F2D007F014C /* RecordingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				495EB8492ED25F6600AE826F /* AppContentView.swift */,
 				495EB84B2ED25FC900AE826F /* SidebarView.swift */,
+				496D3EB22ED50F2D007F014C /* RecordingRow.swift */,
 				495EB84D2ED25FE200AE826F /* DetailContainerView.swift */,
 				495EB84F2ED2628B00AE826F /* PlaceholderView.swift */,
 				495EB85A2ED26D0000AE826F /* RecordingPanelView.swift */,
@@ -264,6 +267,7 @@
 			files = (
 				495EB8802ED3D72500AE826F /* Fetchable.swift in Sources */,
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
+				496D3EB32ED50F2D007F014C /* RecordingRow.swift in Sources */,
 				495EB8632ED3687A00AE826F /* AppError.swift in Sources */,
 				495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */,
 				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
