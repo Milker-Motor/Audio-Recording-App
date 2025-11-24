@@ -8,20 +8,12 @@
 import Foundation
 
 final class SidebarViewModel: ObservableObject {
-    @Published var uiError: AppError?
-    
-    func startNewRecording() {
-        do {
-            try recordable.startNewRecording()
-        } catch {
-            Task { @MainActor in
-                self.uiError = .recordingFailed(error.localizedDescription)
-            }
-        }
+    private let _onPlay: () -> Void
+    init(onPlay: @escaping () -> Void) {
+        self._onPlay = onPlay
     }
     
-    private let recordable: Recordable
-    init(recordable: Recordable) {
-        self.recordable = recordable
+    func startNewRecording() {
+        _onPlay()
     }
 }

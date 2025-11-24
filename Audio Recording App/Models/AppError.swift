@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppError: LocalizedError, Identifiable {
+enum AppError: LocalizedError, Identifiable, Equatable {
     case recordingFailed(String)
     case permissionDenied
     case unknown(String)

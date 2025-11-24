@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Recordable {
-    func startNewRecording() throws
+    func startNewRecording() async throws
     func stopRecording() throws -> URL?
     func pauseRecording()
     func resumeRecording()

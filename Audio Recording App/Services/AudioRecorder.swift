@@ -43,7 +43,7 @@ final class AudioRecorder: AudioRecorderProtocol {
         recorder?.isMeteringEnabled = true
         recorder?.prepareToRecord()
         
-        guard isRecordSuccessful else { throw NSError(domain: "RecordingManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to start recorder"]) }
+        guard isRecordSuccessful else { throw AppError.recordingFailed("Failed to start recorder") }
         
         state = .recording
     }

@@ -14,7 +14,7 @@ enum DetailMode: Equatable {
 }
 
 struct DetailContainerView: View {
-    let viewModel: DetailContainerViewModel
+    @ObservedObject private(set) var viewModel: DetailContainerViewModel
     @ObservedObject var recordingState: RecordingState
     init(viewModel: DetailContainerViewModel) {
         self.viewModel = viewModel
@@ -23,9 +23,12 @@ struct DetailContainerView: View {
     
     var body: some View {
         Group {
-            switch viewModel.mode {
+            switch viewModel.detailMode {
             case .none:
-                PlaceholderView(viewModel: PlaceholderViewModel(recordingState: viewModel.recordingStatable))
+                let placeholderViewModel = PlaceholderViewModel {
+                    self.viewModel.detailMode = .recording
+                }
+                PlaceholderView(viewModel: placeholderViewModel)
             case .recording:
                 RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, recordableState: viewModel.recordingStatable))
             case .playback:
@@ -33,5 +36,6 @@ struct DetailContainerView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+//        .id(viewModel.detailMode)
     }
 }

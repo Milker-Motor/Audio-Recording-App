@@ -38,12 +38,12 @@ final class RecordingPanelViewModel: ObservableObject {
 }
 
 extension RecordingPanelViewModel: Recordable {
-    func startNewRecording() throws {
+    func startNewRecording() async throws {
         do {
-            try recordable.startNewRecording()
+            try await recordable.startNewRecording()
         } catch {
             Task { @MainActor in
-                self.uiError = .recordingFailed(error.localizedDescription)
+                self.uiError = error as? AppError
             }
         }
     }

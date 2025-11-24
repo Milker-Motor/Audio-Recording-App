@@ -8,22 +8,12 @@
 import Foundation
 
 final class PlaceholderViewModel: ObservableObject {
-    private let recordingState: RecordingState
-    init(recordingState: RecordingState) {
-        self.recordingState = recordingState
+    private let _onPlay: () -> Void
+    init(onPlay: @escaping () -> Void) {
+        self._onPlay = onPlay
     }
     
     func onPlay() {
-        recordingState.startNewRecording()
+        _onPlay()
     }
 }
-
-//extension PlaceholderViewModel: Recordable {
-//    func startNewRecording() throws {
-//        recordingState.mode = .recording
-//    }
-//    
-//    func stopRecording() {
-//        recordingState.mode = .playback
-//    }
-//}

@@ -29,32 +29,54 @@ struct RecordingPanelView: View {
                     Label(viewModel.isPaused ? "Resume" : "Pause", systemImage: viewModel.isPaused ? "play.fill" : "pause.fill")
                         .font(.title3)
                 }
+                .disabled(viewModel.uiError == .permissionDenied)
                 .keyboardShortcut(.space, modifiers: [])
-
+                
                 Button {
                     _ = try? viewModel.stopRecording()
                 } label: {
                     Label("Stop", systemImage: "stop.fill").font(.title3)
                 }
+                .disabled(viewModel.uiError == .permissionDenied)
                 .keyboardShortcut(.init("s"), modifiers: [])
-
+                
                 Spacer()
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-
+            
             Spacer()
         }
         .padding(28)
         .alert(item: $viewModel.uiError) { error in
-            Alert(
-                title: Text("Error"),
-                message: Text(error.localizedDescription),
-                dismissButton: .default(Text("OK"))
-            )
+            switch error {
+            case .permissionDenied:
+                return Alert(
+                    title: Text("Microphone Permission Denied"),
+                    message: Text("Please enable microphone access in System Settings → Privacy & Security → Microphone."),
+                    primaryButton: .default(Text("Open Settings")) { openAppSettings() },
+                    secondaryButton: .cancel()
+                )
+            default:
+                return Alert(
+                    title: Text("Error"),
+                    message: Text(error.localizedDescription),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
+
         .onAppear {
-            try? viewModel.startNewRecording()
+            Task {
+                try? await viewModel.startNewRecording()
+            }
+            
+        }
+    }
+    
+    private func openAppSettings() {
+        if let url = URL(string: "x-apple.systempreferences:com.apple.settings.Privacy") {
+            NSWorkspace.shared.open(url)
         }
     }
 }

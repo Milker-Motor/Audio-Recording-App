@@ -15,16 +15,24 @@ struct AppContentView: View {
     }
     
     var body: some View {
+        let detailContainerViewModel = DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state, detailMode: .none)
+        let detailContainerView = DetailContainerView(viewModel: detailContainerViewModel)
+        
+        let sidebarViewModel = SidebarViewModel {
+            detailContainerViewModel.detailMode = .recording
+        }
+        let sidebarView = SidebarView(viewModel: sidebarViewModel)
+        
+
         if #available(macOS 13.0, *) {
             NavigationSplitView {
-                SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
+                sidebarView
             } detail: {
-                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state))
-            }
+                detailContainerView         }
         } else {
             NavigationView {
-                SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
-                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state))
+                sidebarView
+                detailContainerView
             }
             .frame(minWidth: 800, minHeight: 600)
         }
