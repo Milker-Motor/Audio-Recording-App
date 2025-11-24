@@ -29,19 +29,16 @@ class RecordingState: ObservableObject {
     }
 }
 
-extension RecordingState: Recordable {
-    func startNewRecording() throws {
+extension RecordingState {
+    func startNewRecording() {
         state = .recording
-//        mode = .recording
         secondsPlayback = 0
         startStopwatch()
     }
     
-    func stopRecording() throws -> URL? {
+    func stopRecording() {
         state = .stopped
-//        mode = .playback
         stopwatchTimer?.invalidate()
-        return nil
     }
     
     func pauseRecording() {

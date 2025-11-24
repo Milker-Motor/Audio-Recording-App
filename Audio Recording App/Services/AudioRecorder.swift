@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import AppKit
 
 enum AudioRecorderState {
     case stopped, recording, paused
@@ -26,7 +27,11 @@ protocol AudioRecorderProtocol {
 }
 
 final class AudioRecorder: AudioRecorderProtocol {
-    private(set) var state: AudioRecorderState = .stopped
+    private(set) var state: AudioRecorderState = .stopped {
+        didSet {
+            updateDockBadge(state == .recording)
+        }
+    }
     private var recorder: AVAudioRecorder?
     
     func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) throws {
@@ -100,6 +105,16 @@ final class AudioRecorder: AudioRecorderProtocol {
                 AVSampleRateKey: sampleRate,
                 AVNumberOfChannelsKey: 1
             ]
+        }
+    }
+    
+    private func updateDockBadge(_ recording: Bool) {
+        DispatchQueue.main.async {
+            if recording {
+                NSApp.dockTile.badgeLabel = "●"
+            } else {
+                NSApp.dockTile.badgeLabel = nil
+            }
         }
     }
 }

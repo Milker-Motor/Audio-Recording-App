@@ -14,7 +14,7 @@ final class PlaceholderViewModel: ObservableObject {
     }
     
     func onPlay() {
-        try? recordingState.startNewRecording()
+        recordingState.startNewRecording()
     }
 }
 
