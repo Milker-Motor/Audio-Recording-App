@@ -22,7 +22,10 @@ final class RecordingManager: ObservableObject {
 extension RecordingManager: Recordable {
     func startNewRecording() throws {
         state.startNewRecording()
-        try audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
+        Task {
+            try await audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
+        }
+        
     }
     
     func stopRecording() throws -> URL? {

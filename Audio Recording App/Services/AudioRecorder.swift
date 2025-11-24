@@ -20,7 +20,7 @@ enum AudioFormat: String, Codable {
 protocol AudioRecorderProtocol {
     var state: AudioRecorderState { get }
     
-    func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) throws
+    func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) async throws
     func pauseRecording()
     func resumeRecording()
     func stopRecording() -> URL?
@@ -34,7 +34,8 @@ final class AudioRecorder: AudioRecorderProtocol {
     }
     private var recorder: AVAudioRecorder?
     
-    func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) throws {
+    func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) async throws {
+        try await handlePermissions()
         stopRecordingIfNeeded()
         
         let settings = settings(for: format, sampleRate: sampleRate)
@@ -63,6 +64,7 @@ final class AudioRecorder: AudioRecorderProtocol {
         }
     }
     
+    @discardableResult
     func stopRecording() -> URL? {
         guard state != .stopped else { return nil }
         recorder?.stop()
@@ -72,6 +74,20 @@ final class AudioRecorder: AudioRecorderProtocol {
     
     private var isRecordSuccessful: Bool {
         recorder?.record() ?? false
+    }
+    
+    private func handlePermissions() async throws {
+        switch PermissionService.authorizationStatus {
+        case .authorized:
+            return
+        case .notDetermined:
+            let newStatus = try await PermissionService.requestPermission()
+            if newStatus != .authorized {
+                throw AppError.permissionDenied
+            }
+        default:
+            throw AppError.permissionDenied
+        }
     }
     
     private func stopRecordingIfNeeded() {

@@ -35,6 +35,7 @@
 		495EB8802ED3D72500AE826F /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB87F2ED3D72500AE826F /* Fetchable.swift */; };
 		495EB8842ED3D75A00AE826F /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8832ED3D75A00AE826F /* Fetcher.swift */; };
 		495EB8862ED3D7EC00AE826F /* FetcherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */; };
+		495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8882ED48C0D00AE826F /* PermissionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		495EB87F2ED3D72500AE826F /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		495EB8832ED3D75A00AE826F /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherEntity.swift; sourceTree = "<group>"; };
+		495EB8882ED48C0D00AE826F /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				495EB8582ED268BB00AE826F /* RecordingManager.swift */,
 				495EB8602ED35DBE00AE826F /* AudioRecorder.swift */,
 				495EB8712ED3C94D00AE826F /* CoreDataRecordingStore.swift */,
+				495EB8882ED48C0D00AE826F /* PermissionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				495EB8742ED3C9ED00AE826F /* CoreDataHelpers.swift in Sources */,
 				495EB8652ED368F800AE826F /* PlaceholderViewModel.swift in Sources */,
 				495EB86E2ED3C0BE00AE826F /* CoreDataRecordingStore.xcdatamodeld in Sources */,
+				495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
@@ -424,6 +428,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -452,6 +457,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone access to record audio.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
