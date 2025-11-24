@@ -10,8 +10,8 @@ import SwiftUI
 struct AppContentView: View {
     @ObservedObject private var viewModel: RecordingViewModel
     
-    init(recordable: Recordable, recordingState: RecordingState) {
-        self.viewModel = RecordingViewModel(recordable: recordable, state: recordingState)
+    init(recordable: Recordable, dataStore: RecordingDataStore, recordingState: RecordingState) {
+        self.viewModel = RecordingViewModel(recordable: recordable, dataStore: dataStore, state: recordingState)
     }
     
     var body: some View {
@@ -19,12 +19,12 @@ struct AppContentView: View {
             NavigationSplitView {
                 SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
             } detail: {
-                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, state: viewModel.state))
+                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state))
             }
         } else {
             NavigationView {
                 SidebarView(viewModel: SidebarViewModel(recordable: viewModel.recordable))
-                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, state: viewModel.state))
+                DetailContainerView(viewModel: DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state))
             }
             .frame(minWidth: 800, minHeight: 600)
         }

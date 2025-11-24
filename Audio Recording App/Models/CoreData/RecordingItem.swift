@@ -10,7 +10,16 @@ import CoreData
 @objc(RecordingItem)
 class RecordingItem: NSManagedObject {
     @NSManaged var id: UUID
+    @NSManaged var name: String
     @NSManaged var createdAt: Date
-    @NSManaged var duration: Double
+    @NSManaged var duration: Int64
     @NSManaged var fileURL: URL
+    @NSManaged var fileSize: Int64
+    @NSManaged var format: String
+}
+
+struct LocalRecordingItem {
+    let fileURL: URL?
+    let duration: Int
+    let format: AudioFormat
 }

@@ -9,11 +9,13 @@ import SwiftUI
 
 final class RecordingPanelViewModel: ObservableObject {
     private let recordable: Recordable
+    private let dataStore: RecordingDataStore
     @ObservedObject private(set) var recordableState: RecordingState
     @Published var uiError: AppError?
     
-    init(recordable: Recordable, recordableState: RecordingState) {
+    init(recordable: Recordable, dataStore: RecordingDataStore, recordableState: RecordingState) {
         self.recordable = recordable
+        self.dataStore = dataStore
         self.recordableState = recordableState
     }
     
@@ -46,8 +48,17 @@ extension RecordingPanelViewModel: Recordable {
         }
     }
     
-    func stopRecording() {
-        recordable.stopRecording()
+    func stopRecording() throws -> URL? {
+        var url: URL?
+        do {
+            url = try recordable.stopRecording()
+        } catch {
+            Task { @MainActor in
+                self.uiError = .recordingFailed(error.localizedDescription)
+            }
+        }
+        try dataStore.insert(LocalRecordingItem(fileURL: url, duration: recordableState.secondsPlayback, format: recordableState.format))
+        return url
     }
     
     func resumeRecording() {

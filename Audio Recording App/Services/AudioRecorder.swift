@@ -22,7 +22,7 @@ protocol AudioRecorderProtocol {
     func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) throws
     func pauseRecording()
     func resumeRecording()
-    func stopRecording()
+    func stopRecording() -> URL?
 }
 
 final class AudioRecorder: AudioRecorderProtocol {
@@ -58,10 +58,11 @@ final class AudioRecorder: AudioRecorderProtocol {
         }
     }
     
-    func stopRecording() {
-        guard state != .stopped else { return }
+    func stopRecording() -> URL? {
+        guard state != .stopped else { return nil }
         recorder?.stop()
         state = .stopped
+        return recorder?.url
     }
     
     private var isRecordSuccessful: Bool {

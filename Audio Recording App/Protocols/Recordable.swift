@@ -9,7 +9,7 @@ import Foundation
 
 protocol Recordable {
     func startNewRecording() throws
-    func stopRecording()
+    func stopRecording() throws -> URL?
     func pauseRecording()
     func resumeRecording()
 }

@@ -37,10 +37,11 @@ extension RecordingState: Recordable {
         startStopwatch()
     }
     
-    func stopRecording() {
+    func stopRecording() throws -> URL? {
         state = .stopped
 //        mode = .playback
         stopwatchTimer?.invalidate()
+        return nil
     }
     
     func pauseRecording() {

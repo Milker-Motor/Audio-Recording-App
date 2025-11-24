@@ -15,12 +15,17 @@ struct Audio_Recording_AppApp: App {
         let url = tmp.appendingPathComponent(filename)
         return url
     })
-    
-    
+        
     var body: some Scene {
-        let recordingManager = RecordingManager(audioRecorder: AudioRecorder(), state: state)
+        let store = try! CoreDataRecordingStore(
+            storeURL: NSPersistentContainer
+                .defaultDirectoryURL()
+                .appendingPathComponent("Recordings-store.sqlite")
+        )
+        let localFeedLoader = LocalRecordingDataLoader(store: store)
+        let recordingManager = RecordingManager(audioRecorder: AudioRecorder(), dataStore: localFeedLoader, state: state)
         WindowGroup {
-            AppContentView(recordable: recordingManager, recordingState: state)
+            AppContentView(recordable: recordingManager, dataStore: store, recordingState: state)
         }
     }
 }

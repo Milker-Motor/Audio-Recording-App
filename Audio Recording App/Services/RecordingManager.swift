@@ -11,9 +11,11 @@ final class RecordingManager: ObservableObject {
     @ObservedObject private(set) var state: RecordingState
     
     let audioRecorder: AudioRecorderProtocol
-    init(audioRecorder: AudioRecorderProtocol, state: RecordingState) {
+    let dataStore: RecordingDataStore
+    init(audioRecorder: AudioRecorderProtocol, dataStore: RecordingDataStore, state: RecordingState) {
         self.state = state
         self.audioRecorder = audioRecorder
+        self.dataStore = dataStore
     }
 }
 
@@ -23,9 +25,9 @@ extension RecordingManager: Recordable {
         try audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
     }
     
-    func stopRecording() {
-        state.stopRecording()
-        audioRecorder.stopRecording()
+    func stopRecording() throws -> URL? {
+        _ = try state.stopRecording()
+        return audioRecorder.stopRecording()
     }
     
     func pauseRecording() {
