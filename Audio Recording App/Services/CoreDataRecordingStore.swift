@@ -62,22 +62,24 @@ final class CoreDataRecordingStore {
 }
 
 extension CoreDataRecordingStore: RecordingDataStore {
-    func insert(_ item: LocalRecordingItem) throws {
+    func insert(_ item: LocalRecordingItem) throws -> RecordingItem {
+        var newItem: RecordingItem?
         try perform { context in
             guard let fileURL = item.fileURL else { throw AppError.recordingFailed("Saving failed")}
-            let newItem = RecordingItem(context: context)
+            newItem = RecordingItem(context: context)
             let attrs = try FileManager.default.attributesOfItem(atPath: fileURL.path)
             
-            newItem.id = UUID()
-            newItem.name = fileURL.lastPathComponent
-            newItem.fileURL = fileURL
-            newItem.duration = Int64(item.duration)
-            newItem.fileSize = attrs[.size] as? Int64 ?? 0
-            newItem.createdAt = Date()
-            newItem.format = item.format.rawValue
+            newItem?.id = UUID()
+            newItem?.name = fileURL.lastPathComponent
+            newItem?.fileURL = fileURL
+            newItem?.duration = Int64(item.duration)
+            newItem?.fileSize = attrs[.size] as? Int64 ?? 0
+            newItem?.createdAt = Date()
+            newItem?.format = item.format.rawValue
             
             try context.save()
         }
+        return newItem!
     }
     
     func fetchAll() async throws -> [RecordingItem] {

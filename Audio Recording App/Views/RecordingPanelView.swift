@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecordingPanelView: View {
-    @ObservedObject var viewModel: RecordingPanelViewModel
+    @StateObject var viewModel: RecordingPanelViewModel
     var body: some View {
         VStack(spacing: 28) {
             HStack {
@@ -68,7 +68,6 @@ struct RecordingPanelView: View {
                 )
             }
         }
-
         .onAppear {
             Task {
                 try? await viewModel.startNewRecording()

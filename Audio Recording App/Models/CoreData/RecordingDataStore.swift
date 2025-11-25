@@ -8,6 +8,6 @@
 import Foundation
 
 protocol RecordingDataStore {
-    func insert(_ item: LocalRecordingItem) throws
+    func insert(_ item: LocalRecordingItem) throws -> RecordingItem
     func fetchAll() async throws -> [RecordingItem] 
 }

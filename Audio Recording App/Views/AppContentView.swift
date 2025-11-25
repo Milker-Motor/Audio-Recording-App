@@ -19,6 +19,8 @@ struct AppContentView: View {
         let detailContainerView = DetailContainerView(viewModel: detailContainerViewModel)
         
         let sidebarViewModel = SidebarViewModel(dataStore: viewModel.dataStore) {
+            _ = try? viewModel.recordable.stopRecording()
+            viewModel.recordable.state.startNewRecording()
             detailContainerViewModel.detailMode = .recording
         } onSelect: { item in
             detailContainerViewModel.detailMode = .playback(item)

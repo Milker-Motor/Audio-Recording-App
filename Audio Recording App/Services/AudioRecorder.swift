@@ -47,6 +47,7 @@ final class AudioRecorder: AudioRecorderProtocol {
         try await handlePermissions()
         stopRecordingIfNeeded()
         
+        
         let settings = settings(for: format, sampleRate: sampleRate)
         recorder = try AVAudioRecorder(url: url, settings: settings)
         recorder?.isMeteringEnabled = true

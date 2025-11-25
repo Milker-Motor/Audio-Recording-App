@@ -31,24 +31,24 @@ class RecordingState: ObservableObject {
 
 extension RecordingState {
     func startNewRecording() {
-        state = .recording
         secondsPlayback = 0
         startStopwatch()
+        state = .recording
     }
     
     func stopRecording() {
-        state = .stopped
         stopwatchTimer?.invalidate()
+        state = .stopped
     }
     
     func pauseRecording() {
-        state = .paused
         stopwatchTimer?.invalidate()
+        state = .paused
     }
     
     func resumeRecording() {
-        state = .recording
         startStopwatch()
+        state = .recording
     }
     
     private func startStopwatch() {

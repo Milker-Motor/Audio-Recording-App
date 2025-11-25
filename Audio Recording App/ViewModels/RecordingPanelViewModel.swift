@@ -10,21 +10,19 @@ import SwiftUI
 final class RecordingPanelViewModel: ObservableObject {
     let recordable: Recordable
     private let dataStore: RecordingDataStore
-    @ObservedObject private(set) var recordableState: RecordingState
     @Published var uiError: AppError?
     
     init(recordable: Recordable, dataStore: RecordingDataStore) {
         self.recordable = recordable
         self.dataStore = dataStore
-        self.recordableState = recordable.state
     }
     
     var isPaused: Bool {
-        recordableState.state == .paused
+        state.state == .paused
     }
     
     var timer: String {
-        let duration = recordableState.secondsPlayback
+        let duration = state.secondsPlayback
         return String(format: "%02d:%02d", duration / 60, duration % 60)
     }
     
@@ -39,7 +37,7 @@ final class RecordingPanelViewModel: ObservableObject {
 
 extension RecordingPanelViewModel: Recordable {
     var state: RecordingState {
-        recordableState
+        recordable.state
     }
     
     var isRecording: Bool {
@@ -69,7 +67,7 @@ extension RecordingPanelViewModel: Recordable {
                 self.uiError = .recordingFailed(error.localizedDescription)
             }
         }
-        try dataStore.insert(LocalRecordingItem(fileURL: url, duration: recordableState.secondsPlayback, format: recordableState.format))
+        try dataStore.insert(LocalRecordingItem(fileURL: url, duration: state.secondsPlayback, format: state.format))
         return url
     }
     

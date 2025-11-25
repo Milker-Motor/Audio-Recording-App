@@ -15,7 +15,7 @@ final class LocalRecordingDataLoader {
 }
 
 extension LocalRecordingDataLoader: RecordingDataStore {
-    func insert(_ item: LocalRecordingItem) throws {
+    func insert(_ item: LocalRecordingItem) throws -> RecordingItem {
         try store.insert(item)
     }
     
