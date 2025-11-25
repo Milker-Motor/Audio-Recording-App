@@ -10,7 +10,7 @@ import SwiftUI
 struct AppContentView: View {
     @ObservedObject private var viewModel: RecordingViewModel
     
-    init(recordable: Recordable, dataStore: RecordingDataStore, recordingState: RecordingState) {
+    init(recordable: Recordable, dataStore: RecordingDataStore) {
         self.viewModel = RecordingViewModel(recordable: recordable, dataStore: dataStore)
     }
     

@@ -25,7 +25,7 @@ struct Audio_Recording_AppApp: App {
         let localFeedLoader = LocalRecordingDataLoader(store: store)
         let recordingManager = RecordingManager(audioRecorder: AudioRecorder(), dataStore: localFeedLoader, state: state)
         WindowGroup {
-            AppContentView(recordable: recordingManager, dataStore: store, recordingState: state)
+            AppContentView(recordable: recordingManager, dataStore: store)
         }
     }
 }
