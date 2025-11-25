@@ -32,6 +32,12 @@ final class SidebarViewModel: ObservableObject {
         }
     }
     
+    func append(_ item: RecordingRowItem) {
+        if !recordings.contains(item) {
+            recordings.append(item)
+        }
+    }
+    
     func startNewRecording() {
         _onPlay()
     }

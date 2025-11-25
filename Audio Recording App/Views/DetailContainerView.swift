@@ -30,12 +30,13 @@ struct DetailContainerView: View {
                 }
                 PlaceholderView(viewModel: placeholderViewModel)
             case .recording:
-                RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore))
+                RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore) { item in
+                    viewModel.detailMode = .playback(item)
+                })
             case let .playback(item):
                 PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item, playback: viewModel.playback, recorder: viewModel.recordable))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .id(viewModel.detailMode)
     }
 }

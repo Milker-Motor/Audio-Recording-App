@@ -20,11 +20,11 @@ enum AppError: LocalizedError, Identifiable, Equatable {
             return "Recording Failed: \(message)"
             
         case .permissionDenied:
-            
             return "Microphone access is denied."
-            
+                        
         case .unknown(let message):
             return message
         }
+        
     }
 }

@@ -20,15 +20,4 @@ final class DetailContainerViewModel: ObservableObject {
         self.detailMode = detailMode
         
     }
-    
-//    var mode: DetailMode {
-//        switch recordingStatable.state {
-//        case .stopped:
-//            return .none
-//        case .recording:
-//            return .recording
-//        case .paused:
-//            return .recording
-//        }
-//    }
 }

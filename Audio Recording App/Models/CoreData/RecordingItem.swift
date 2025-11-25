@@ -17,9 +17,3 @@ class RecordingItem: NSManagedObject {
     @NSManaged var fileSize: Int64
     @NSManaged var format: String
 }
-
-struct LocalRecordingItem {
-    let fileURL: URL?
-    let duration: Int
-    let format: AudioFormat
-}

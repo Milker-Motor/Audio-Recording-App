@@ -17,18 +17,6 @@ enum AudioFormat: String, Codable {
     case m4a, wav, caf
 }
 
-protocol AudioRecorderProtocol {
-    var isRecording: Bool { get }
-    var state: AudioRecorderState { get }
-    
-    func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) async throws
-    func pauseRecording()
-    func resumeRecording()
-    func stopRecording() -> URL?
-    func updateMeters()
-    func averagePower(forChannel channelNumber: Int) -> Float
-}
-
 final class AudioRecorder: AudioRecorderProtocol {
     private(set) var state: AudioRecorderState = .stopped {
         didSet {

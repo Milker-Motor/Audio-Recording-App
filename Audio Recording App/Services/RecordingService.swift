@@ -1,5 +1,5 @@
 //
-//  RecordingManager.swift
+//  RecordingService.swift
 //  Audio Recording App
 //
 //  Created by Oleksii Lytvynov-Bohdanov on 22.11.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class RecordingManager: ObservableObject {
+final class RecordingService: ObservableObject {
     @ObservedObject private(set) var state: RecordingState
     
     let audioRecorder: AudioRecorderProtocol
@@ -19,7 +19,7 @@ final class RecordingManager: ObservableObject {
     }
 }
 
-extension RecordingManager: Recordable {
+extension RecordingService: Recordable {
     
     var isRecording: Bool {
         audioRecorder.isRecording
@@ -30,17 +30,8 @@ extension RecordingManager: Recordable {
     }
     
     func startNewRecording() async throws {
-//        Task {
-//            do {
-                try await audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
-                state.startNewRecording()
-//            } catch {
-//                state.pauseRecording()
-//                throw error
-//            }
-            
-//        }
-        
+        try await audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
+        state.startNewRecording()
     }
     
     func stopRecording() throws -> URL? {
