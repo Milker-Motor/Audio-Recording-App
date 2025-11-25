@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		491958582ED519D1004C6F44 /* PlaybackPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491958572ED519D1004C6F44 /* PlaybackPanelView.swift */; };
 		4919585A2ED51B06004C6F44 /* PlaybackPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491958592ED51B06004C6F44 /* PlaybackPanelViewModel.swift */; };
+		4919585C2ED52294004C6F44 /* PlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919585B2ED52294004C6F44 /* PlaybackManager.swift */; };
 		491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */; };
 		491C61382ECFCFB000AFF4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C61372ECFCFB000AFF4E2 /* Assets.xcassets */; };
 		491C613B2ECFCFB000AFF4E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491C613A2ECFCFB000AFF4E2 /* Preview Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		491958572ED519D1004C6F44 /* PlaybackPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPanelView.swift; sourceTree = "<group>"; };
 		491958592ED51B06004C6F44 /* PlaybackPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPanelViewModel.swift; sourceTree = "<group>"; };
+		4919585B2ED52294004C6F44 /* PlaybackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManager.swift; sourceTree = "<group>"; };
 		491C61302ECFCFAD00AFF4E2 /* Audio Recording App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Audio Recording App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		491C61332ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio_Recording_AppApp.swift; sourceTree = "<group>"; };
 		491C61372ECFCFB000AFF4E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				495EB8602ED35DBE00AE826F /* AudioRecorder.swift */,
 				495EB8712ED3C94D00AE826F /* CoreDataRecordingStore.swift */,
 				495EB8882ED48C0D00AE826F /* PermissionService.swift */,
+				4919585B2ED52294004C6F44 /* PlaybackManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				496D3EB32ED50F2D007F014C /* RecordingRow.swift in Sources */,
 				495EB8632ED3687A00AE826F /* AppError.swift in Sources */,
 				495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */,
+				4919585C2ED52294004C6F44 /* PlaybackManager.swift in Sources */,
 				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
 				495EB8592ED268BB00AE826F /* RecordingManager.swift in Sources */,
 				495EB8862ED3D7EC00AE826F /* FetcherEntity.swift in Sources */,

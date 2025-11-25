@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlaybackPanelView: View {
-    let viewModel: PlaybackPanelViewModel
+    @ObservedObject private(set) var viewModel: PlaybackPanelViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             HStack {
@@ -44,16 +44,17 @@ struct PlaybackPanelView: View {
 
             HStack(spacing: 20) {
                 Button {
-
+                    viewModel.togglePlayPause()
                 } label: {
-                    Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill").font(.title2)
+                    Image(systemName: viewModel.playbackState.isPlaying ? "pause.fill" : "play.fill").font(.title2)
                 }
 
-                Button {
-                    
-                } label: {
-                    Image(systemName: "gobackward").font(.title2)
-                }
+                Button(
+                    action: viewModel.stopPlayback,
+                    label: {
+                        Image(systemName: "gobackward").font(.title2)
+                    }
+                )
                 Spacer()
             }
             .buttonStyle(.bordered)

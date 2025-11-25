@@ -32,7 +32,7 @@ struct DetailContainerView: View {
             case .recording:
                 RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, recordableState: viewModel.recordingStatable))
             case let .playback(item):
-                PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item))
+                PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item, playback: viewModel.playback))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

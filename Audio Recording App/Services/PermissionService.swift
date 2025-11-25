@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-public enum MicrophonePermission {
+enum MicrophonePermission {
     case authorized, denied, notDetermined, restricted
 }
 

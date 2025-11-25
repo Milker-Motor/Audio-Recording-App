@@ -15,7 +15,7 @@ struct AppContentView: View {
     }
     
     var body: some View {
-        let detailContainerViewModel = DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, state: viewModel.state, detailMode: .none)
+        let detailContainerViewModel = DetailContainerViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, playback: PlaybackManager(), state: viewModel.state, detailMode: .none)
         let detailContainerView = DetailContainerView(viewModel: detailContainerViewModel)
         
         let sidebarViewModel = SidebarViewModel(dataStore: viewModel.dataStore) {
