@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class RecordingManager: ObservableObject {
+final class RecordingService: ObservableObject {
     @ObservedObject private(set) var state: RecordingState
     
     let audioRecorder: AudioRecorderProtocol
@@ -19,7 +19,7 @@ final class RecordingManager: ObservableObject {
     }
 }
 
-extension RecordingManager: Recordable {
+extension RecordingService: Recordable {
     
     var isRecording: Bool {
         audioRecorder.isRecording

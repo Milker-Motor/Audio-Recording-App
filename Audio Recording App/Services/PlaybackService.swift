@@ -37,7 +37,7 @@ protocol PlaybackManagerProtocol {
     func seek(to time: TimeInterval)
 }
 
-final class PlaybackManager: NSObject, ObservableObject {
+final class PlaybackService: NSObject, ObservableObject {
     @Published private var player: AVAudioPlayer? {
         didSet {
             if let player {
@@ -76,7 +76,7 @@ final class PlaybackManager: NSObject, ObservableObject {
     }
 }
 
-extension PlaybackManager: PlaybackManagerProtocol {
+extension PlaybackService: PlaybackManagerProtocol {
     
     func load(url: URL) throws {
         stop()
@@ -110,7 +110,7 @@ extension PlaybackManager: PlaybackManagerProtocol {
     }
 }
 
-extension PlaybackManager: AVAudioPlayerDelegate {
+extension PlaybackService: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         state.stop()
         stopTimer()
