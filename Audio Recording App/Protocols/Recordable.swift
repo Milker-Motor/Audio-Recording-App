@@ -10,7 +10,6 @@ import Foundation
 protocol Recordable {
     var state: RecordingState { get }
     var isRecording: Bool { get }
-//    var onRecordingChange: (Bool) -> Void { get set }
     
     func startNewRecording() async throws
     func stopRecording() throws -> URL?

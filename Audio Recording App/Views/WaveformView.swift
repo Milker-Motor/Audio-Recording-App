@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WaveformView: View {
-    let viewModel: WaveformViewModel
+    @ObservedObject var viewModel: WaveformViewModel
 
     var body: some View {
         GeometryReader { geo in
@@ -16,6 +16,7 @@ struct WaveformView: View {
             HStack(alignment: .center, spacing: 4) {
                 ForEach(viewModel.levels, id: \.self) { level in
                     let height = max(3, maxH * (0.05 + 0.95 * level))
+                    
                     Capsule()
                         .frame(width: max(3, geo.size.width / CGFloat(viewModel.levels.count) - 4), height: height)
                 }
@@ -25,4 +26,3 @@ struct WaveformView: View {
         .clipped()
     }
 }
-

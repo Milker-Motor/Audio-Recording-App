@@ -12,7 +12,7 @@ final class WaveformViewModel: ObservableObject {
     private let recorder: Recordable
     private var cancellable = Set<AnyCancellable>()
     
-    @Published public private(set) var levels: [CGFloat] = Array(repeating: 0.02, count: 20)
+    @Published private(set) var levels: [CGFloat] = Array(repeating: 0.02, count: 20)
     private var timer: Timer?
     init(recorder: Recordable) {
         self.recorder = recorder
@@ -31,14 +31,25 @@ final class WaveformViewModel: ObservableObject {
     
     private func startMeters() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
-            guard let self = self, recorder.isRecording else { return }
-            recorder.updateMeters()
-            let avg = recorder.averagePower(forChannel: 0)
-            let norm = self.normalizedPower(fromDecibels: avg)
-            self.levels.removeFirst()
-            self.levels.append(CGFloat(norm))
+        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
+            DispatchQueue.main.async { [weak self] in
+//                Task { @MainActor in
+                    self?.updateLevel()
+//                }
+            }
         }
+    }
+    
+    @MainActor
+    private func updateLevel() {
+        guard recorder.isRecording else { return }
+
+        recorder.updateMeters()
+        let avg = recorder.averagePower(forChannel: 0)
+        let norm = normalizedPower(fromDecibels: avg)
+
+        levels.removeFirst()
+        levels.append(CGFloat(norm))
     }
     
     private func stopMeters() {

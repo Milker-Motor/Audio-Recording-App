@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Audio_Recording_AppApp: App {
-    let state = RecordingState(format: .m4a, sampleRate: 44_100, url: { format in
+    let state = RecordingState(format: .m4a, sampleRate: 48_000, url: { format in
         let tmp = FileManager.default.temporaryDirectory
         let filename = "Recording_\(Int(Date().timeIntervalSince1970)).\(format)"
         let url = tmp.appendingPathComponent(filename)
