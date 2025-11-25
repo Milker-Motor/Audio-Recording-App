@@ -38,6 +38,5 @@ struct DetailContainerView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .id(viewModel.detailMode)
     }
 }

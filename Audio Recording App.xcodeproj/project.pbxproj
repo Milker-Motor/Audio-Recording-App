@@ -36,12 +36,12 @@
 		495EB8742ED3C9ED00AE826F /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8732ED3C9ED00AE826F /* CoreDataHelpers.swift */; };
 		495EB8762ED3CA5600AE826F /* RecordingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8752ED3CA5600AE826F /* RecordingDataStore.swift */; };
 		495EB8782ED3CAA300AE826F /* LocalRecordingDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8772ED3CAA300AE826F /* LocalRecordingDataLoader.swift */; };
-		495EB87E2ED3D0FE00AE826F /* CoreDataRecordingStore+RecordingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB87D2ED3D0FE00AE826F /* CoreDataRecordingStore+RecordingStore.swift */; };
-		495EB8802ED3D72500AE826F /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB87F2ED3D72500AE826F /* Fetchable.swift */; };
-		495EB8842ED3D75A00AE826F /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8832ED3D75A00AE826F /* Fetcher.swift */; };
-		495EB8862ED3D7EC00AE826F /* FetcherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */; };
 		495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495EB8882ED48C0D00AE826F /* PermissionService.swift */; };
 		496D3EB32ED50F2D007F014C /* RecordingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D3EB22ED50F2D007F014C /* RecordingRow.swift */; };
+		49BA3D692ED6212B00DB78A7 /* LocalRecordingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA3D682ED6212B00DB78A7 /* LocalRecordingItem.swift */; };
+		49BA3D6B2ED621B500DB78A7 /* PlaybackManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA3D6A2ED621B500DB78A7 /* PlaybackManagerProtocol.swift */; };
+		49BA3D6D2ED621E300DB78A7 /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA3D6C2ED621E300DB78A7 /* PlaybackState.swift */; };
+		49BA3D6F2ED6224900DB78A7 /* AudioRecorderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BA3D6E2ED6224900DB78A7 /* AudioRecorderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,12 +76,12 @@
 		495EB8732ED3C9ED00AE826F /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		495EB8752ED3CA5600AE826F /* RecordingDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDataStore.swift; sourceTree = "<group>"; };
 		495EB8772ED3CAA300AE826F /* LocalRecordingDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRecordingDataLoader.swift; sourceTree = "<group>"; };
-		495EB87D2ED3D0FE00AE826F /* CoreDataRecordingStore+RecordingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecordingStore+RecordingStore.swift"; sourceTree = "<group>"; };
-		495EB87F2ED3D72500AE826F /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
-		495EB8832ED3D75A00AE826F /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
-		495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetcherEntity.swift; sourceTree = "<group>"; };
 		495EB8882ED48C0D00AE826F /* PermissionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionService.swift; sourceTree = "<group>"; };
 		496D3EB22ED50F2D007F014C /* RecordingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingRow.swift; sourceTree = "<group>"; };
+		49BA3D682ED6212B00DB78A7 /* LocalRecordingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRecordingItem.swift; sourceTree = "<group>"; };
+		49BA3D6A2ED621B500DB78A7 /* PlaybackManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManagerProtocol.swift; sourceTree = "<group>"; };
+		49BA3D6C2ED621E300DB78A7 /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
+		49BA3D6E2ED6224900DB78A7 /* AudioRecorderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				495EB8522ED2657B00AE826F /* Recordable.swift */,
-				495EB87F2ED3D72500AE826F /* Fetchable.swift */,
+				49BA3D6A2ED621B500DB78A7 /* PlaybackManagerProtocol.swift */,
+				49BA3D6E2ED6224900DB78A7 /* AudioRecorderProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -190,6 +191,8 @@
 			children = (
 				495EB8622ED3687900AE826F /* AppError.swift */,
 				495EB8692ED3BCB800AE826F /* RecordingState.swift */,
+				49BA3D682ED6212B00DB78A7 /* LocalRecordingItem.swift */,
+				49BA3D6C2ED621E300DB78A7 /* PlaybackState.swift */,
 				495EB86B2ED3C0AD00AE826F /* CoreData */,
 			);
 			path = Models;
@@ -203,9 +206,6 @@
 				495EB8732ED3C9ED00AE826F /* CoreDataHelpers.swift */,
 				495EB8752ED3CA5600AE826F /* RecordingDataStore.swift */,
 				495EB8772ED3CAA300AE826F /* LocalRecordingDataLoader.swift */,
-				495EB87D2ED3D0FE00AE826F /* CoreDataRecordingStore+RecordingStore.swift */,
-				495EB8832ED3D75A00AE826F /* Fetcher.swift */,
-				495EB8852ED3D7EC00AE826F /* FetcherEntity.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -280,21 +280,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				495EB8802ED3D72500AE826F /* Fetchable.swift in Sources */,
 				491958602ED5A5A7004C6F44 /* WaveformViewModel.swift in Sources */,
 				495EB84A2ED25F6600AE826F /* AppContentView.swift in Sources */,
 				496D3EB32ED50F2D007F014C /* RecordingRow.swift in Sources */,
 				495EB8632ED3687A00AE826F /* AppError.swift in Sources */,
 				495EB8672ED36B3C00AE826F /* SidebarViewModel.swift in Sources */,
 				4919585C2ED52294004C6F44 /* PlaybackService.swift in Sources */,
+				49BA3D6F2ED6224900DB78A7 /* AudioRecorderProtocol.swift in Sources */,
 				495EB85D2ED35A3D00AE826F /* RecordingPanelViewModel.swift in Sources */,
 				495EB8592ED268BB00AE826F /* RecordingService.swift in Sources */,
-				495EB8862ED3D7EC00AE826F /* FetcherEntity.swift in Sources */,
 				495EB85B2ED26D0000AE826F /* RecordingPanelView.swift in Sources */,
 				495EB8722ED3C94E00AE826F /* CoreDataRecordingStore.swift in Sources */,
-				495EB8842ED3D75A00AE826F /* Fetcher.swift in Sources */,
 				495EB84E2ED25FE200AE826F /* DetailContainerView.swift in Sources */,
-				495EB87E2ED3D0FE00AE826F /* CoreDataRecordingStore+RecordingStore.swift in Sources */,
 				495EB8562ED2681300AE826F /* AppContentViewModel.swift in Sources */,
 				4919585E2ED5A248004C6F44 /* WaveformView.swift in Sources */,
 				495EB8612ED35DBE00AE826F /* AudioRecorder.swift in Sources */,
@@ -305,7 +302,10 @@
 				495EB8892ED48C0D00AE826F /* PermissionService.swift in Sources */,
 				4919585A2ED51B06004C6F44 /* PlaybackPanelViewModel.swift in Sources */,
 				491C61342ECFCFAD00AFF4E2 /* Audio_Recording_AppApp.swift in Sources */,
+				49BA3D6B2ED621B500DB78A7 /* PlaybackManagerProtocol.swift in Sources */,
+				49BA3D6D2ED621E300DB78A7 /* PlaybackState.swift in Sources */,
 				495EB8502ED2628B00AE826F /* PlaceholderView.swift in Sources */,
+				49BA3D692ED6212B00DB78A7 /* LocalRecordingItem.swift in Sources */,
 				495EB8532ED2657B00AE826F /* Recordable.swift in Sources */,
 				495EB8762ED3CA5600AE826F /* RecordingDataStore.swift in Sources */,
 				495EB8702ED3C22300AE826F /* RecordingItem.swift in Sources */,

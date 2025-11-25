@@ -24,12 +24,9 @@ struct PlaybackPanelView: View {
                         if #available(macOS 13.0, *) {
                             ShareLink(item: url) { Label("Share", systemImage: "square.and.arrow.up") }
                         } else {
-                            // Fallback on earlier versions
+                            
                         }
                     }
-                    Button(role: .destructive) {
-                        
-                    } label: { Image(systemName: "trash") }
                 }
             }
             

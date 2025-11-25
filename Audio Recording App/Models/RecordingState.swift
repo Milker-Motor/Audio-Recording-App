@@ -8,8 +8,6 @@
 import Foundation
 
 class RecordingState: ObservableObject {
-//    @Published var mode: DetailMode
-//    @Published var isPaused: Bool
     @Published private(set) var state: AudioRecorderState
     @Published private(set) var secondsPlayback: Int = 0
     
@@ -19,9 +17,11 @@ class RecordingState: ObservableObject {
     
     private var stopwatchTimer: Timer?
     
-    init(state: AudioRecorderState = .stopped,/*mode: DetailMode = .none, isPaused: Bool = false, */format: AudioFormat, sampleRate: Double, url: @escaping (String) -> URL) {
-//        self.mode = mode
-//        self.isPaused = isPaused
+    init(state: AudioRecorderState = .stopped,
+         format: AudioFormat,
+         sampleRate: Double,
+         url: @escaping (String) -> URL
+    ) {
         self.state = state
         self.format = format
         self.sampleRate = sampleRate

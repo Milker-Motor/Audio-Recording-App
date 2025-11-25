@@ -27,9 +27,6 @@ struct SidebarView: View {
                 ForEach(viewModel.recordings) { item in
                     RecordingRow(item: item)
                         .tag(item)
-                        .contextMenu {
-                            Button("Delete", role: .destructive) { }
-                        }
                 }
             }
             .listStyle(.inset)

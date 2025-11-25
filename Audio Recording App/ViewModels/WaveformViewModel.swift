@@ -33,9 +33,7 @@ final class WaveformViewModel: ObservableObject {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
             DispatchQueue.main.async { [weak self] in
-//                Task { @MainActor in
-                    self?.updateLevel()
-//                }
+                self?.updateLevel()
             }
         }
     }
@@ -65,42 +63,3 @@ final class WaveformViewModel: ObservableObject {
         return max(0.0, min(1.0, level))
     }
 }
-
-//extension WaveformViewModel: Recordable {
-//    var isRecording: Bool {
-//        recorder.isRecording
-//    }
-//    
-//    func startNewRecording() async throws {
-//        startMeters()
-//        try await recorder.startNewRecording()
-//    }
-//    
-//    func stopRecording() throws -> URL? {
-//        stopMeters()
-//        return try recorder.stopRecording()
-//        
-//    }
-//    
-//    func pauseRecording() {
-//        stopMeters()
-//        recorder.pauseRecording()
-//    }
-//    
-//    func resumeRecording() {
-//        recorder.resumeRecording()
-//        if recorder.isRecording {
-//            startMeters()
-//        } else {
-//            stopMeters()
-//        }
-//    }
-//    
-//    func updateMeters() {
-//        recorder.updateMeters()
-//    }
-//    
-//    func averagePower(forChannel channelNumber: Int) -> Float {
-//        recorder.averagePower(forChannel: channelNumber)
-//    }
-//}

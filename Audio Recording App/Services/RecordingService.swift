@@ -30,17 +30,8 @@ extension RecordingService: Recordable {
     }
     
     func startNewRecording() async throws {
-//        Task {
-//            do {
-                try await audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
-                state.startNewRecording()
-//            } catch {
-//                state.pauseRecording()
-//                throw error
-//            }
-            
-//        }
-        
+        try await audioRecorder.startRecording(to: state.url(state.format.rawValue), format: state.format, sampleRate: state.sampleRate)
+        state.startNewRecording()
     }
     
     func stopRecording() throws -> URL? {

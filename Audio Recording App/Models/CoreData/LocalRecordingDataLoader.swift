@@ -23,26 +23,3 @@ extension LocalRecordingDataLoader: RecordingDataStore {
         try await store.fetchAll()
     }
 }
-
-
-
-
-//protocol RecordingCache {
-//    func insert(_ recordig: RecordingItem) async throws
-//}
-//
-//extension CoreDataRecordingStore: RecordingCache {
-//    func insert(_ recordig: RecordingItem) async throws {
-//        perform { context in
-//            try RecordingItem.new
-//            completion(Result {
-//                let managedCache = try ManagedCache.newUniqueInstance(in: context)
-//                
-//                managedCache.timestamp = timestamp
-//                managedCache.feed = ManagedFeedImage.images(from: feed, in: context)
-//                
-//                try context.save()
-//            })
-//        }
-//    }
-//}
