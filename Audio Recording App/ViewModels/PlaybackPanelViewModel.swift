@@ -16,11 +16,13 @@ final class PlaybackPanelViewModel: ObservableObject {
     let item: RecordingRowItem
     
     private let playback: PlaybackManagerProtocol
+    let recorder: Recordable
     private var cancellable = Set<AnyCancellable>()
     
-    init(item: RecordingRowItem, playback: PlaybackManagerProtocol) {
+    init(item: RecordingRowItem, playback: PlaybackManagerProtocol, recorder: Recordable) {
         self.item = item
         self.playback = playback
+        self.recorder = recorder
         self.isPlaying = playback.state.isPlaying
         self.playbackPosition = playback.state.currentTime
         

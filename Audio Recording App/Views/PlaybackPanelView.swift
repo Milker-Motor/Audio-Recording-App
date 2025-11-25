@@ -32,6 +32,8 @@ struct PlaybackPanelView: View {
                     } label: { Image(systemName: "trash") }
                 }
             }
+            
+            WaveformView(viewModel: WaveformViewModel(recorder: viewModel.recorder))
 
             VStack {
                 Slider(value: Binding(get: { viewModel.playbackPosition }, set: { viewModel.playbackPosition = $0 }), in: 0...Double(max(1, viewModel.item.durationInSeconds)))

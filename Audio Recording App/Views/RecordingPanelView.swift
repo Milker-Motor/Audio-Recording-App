@@ -22,6 +22,9 @@ struct RecordingPanelView: View {
             Text(viewModel.timer)
                 .font(.system(size: 48, weight: .semibold, design: .monospaced))
                 .monospacedDigit()
+            WaveformView(viewModel: WaveformViewModel(recorder: viewModel.recordable))
+                .frame(height: 120)
+                .padding(.horizontal, 8)
             HStack(spacing: 28) {
                 Button {
                     viewModel.togglePauseResumeRecording()

@@ -18,7 +18,7 @@ struct DetailContainerView: View {
     @ObservedObject var recordingState: RecordingState
     init(viewModel: DetailContainerViewModel) {
         self.viewModel = viewModel
-        self.recordingState = viewModel.recordingStatable
+        self.recordingState = viewModel.recordable.state
     }
     
     var body: some View {
@@ -30,9 +30,9 @@ struct DetailContainerView: View {
                 }
                 PlaceholderView(viewModel: placeholderViewModel)
             case .recording:
-                RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore, recordableState: viewModel.recordingStatable))
+                RecordingPanelView(viewModel: RecordingPanelViewModel(recordable: viewModel.recordable, dataStore: viewModel.dataStore))
             case let .playback(item):
-                PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item, playback: viewModel.playback))
+                PlaybackPanelView(viewModel: PlaybackPanelViewModel(item: item, playback: viewModel.playback, recorder: viewModel.recordable))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

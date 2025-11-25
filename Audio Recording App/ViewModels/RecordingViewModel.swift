@@ -9,14 +9,12 @@ import SwiftUI
 
 final class RecordingViewModel: ObservableObject {
     let recordable: Recordable
-    let state: RecordingState
     let dataStore: RecordingDataStore
     
     @Published var uiError: AppError?
     
-    init(recordable: Recordable, dataStore: RecordingDataStore, state: RecordingState) {
+    init(recordable: Recordable, dataStore: RecordingDataStore) {
         self.recordable = recordable
         self.dataStore = dataStore
-        self.state = state
     }
 }

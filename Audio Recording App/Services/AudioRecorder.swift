@@ -18,12 +18,15 @@ enum AudioFormat: String, Codable {
 }
 
 protocol AudioRecorderProtocol {
+    var isRecording: Bool { get }
     var state: AudioRecorderState { get }
     
     func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) async throws
     func pauseRecording()
     func resumeRecording()
     func stopRecording() -> URL?
+    func updateMeters()
+    func averagePower(forChannel channelNumber: Int) -> Float
 }
 
 final class AudioRecorder: AudioRecorderProtocol {
@@ -33,6 +36,12 @@ final class AudioRecorder: AudioRecorderProtocol {
         }
     }
     private var recorder: AVAudioRecorder?
+    
+    var isRecording: Bool { recorder?.isRecording ?? false }
+    
+    func updateMeters() {
+        recorder?.updateMeters()
+    }
     
     func startRecording(to url: URL, format: AudioFormat, sampleRate: Double) async throws {
         try await handlePermissions()
@@ -70,6 +79,10 @@ final class AudioRecorder: AudioRecorderProtocol {
         recorder?.stop()
         state = .stopped
         return recorder?.url
+    }
+    
+    func averagePower(forChannel channelNumber: Int) -> Float {
+        recorder?.averagePower(forChannel: channelNumber) ?? 0
     }
     
     private var isRecordSuccessful: Bool {

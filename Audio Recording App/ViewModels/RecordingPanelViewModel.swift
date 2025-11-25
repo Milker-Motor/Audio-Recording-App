@@ -8,15 +8,15 @@
 import SwiftUI
 
 final class RecordingPanelViewModel: ObservableObject {
-    private let recordable: Recordable
+    let recordable: Recordable
     private let dataStore: RecordingDataStore
     @ObservedObject private(set) var recordableState: RecordingState
     @Published var uiError: AppError?
     
-    init(recordable: Recordable, dataStore: RecordingDataStore, recordableState: RecordingState) {
+    init(recordable: Recordable, dataStore: RecordingDataStore) {
         self.recordable = recordable
         self.dataStore = dataStore
-        self.recordableState = recordableState
+        self.recordableState = recordable.state
     }
     
     var isPaused: Bool {
@@ -38,6 +38,18 @@ final class RecordingPanelViewModel: ObservableObject {
 }
 
 extension RecordingPanelViewModel: Recordable {
+    var state: RecordingState {
+        recordableState
+    }
+    
+    var isRecording: Bool {
+        recordable.isRecording
+    }
+    
+    func updateMeters() {
+        recordable.updateMeters()
+    }
+    
     func startNewRecording() async throws {
         do {
             try await recordable.startNewRecording()
@@ -67,5 +79,9 @@ extension RecordingPanelViewModel: Recordable {
     
     func pauseRecording() {
         recordable.pauseRecording()
+    }
+    
+    func averagePower(forChannel channelNumber: Int) -> Float {
+        recordable.averagePower(forChannel: channelNumber)
     }
 }

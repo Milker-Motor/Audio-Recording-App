@@ -9,16 +9,14 @@ import Foundation
 
 final class DetailContainerViewModel: ObservableObject {
     private(set) var recordable: Recordable
-    private(set) var recordingStatable: RecordingState
     let dataStore: RecordingDataStore
     let playback: PlaybackManagerProtocol
     @Published var detailMode: DetailMode
     
-    init(recordable: Recordable, dataStore: RecordingDataStore, playback: PlaybackManagerProtocol, state: RecordingState, detailMode: DetailMode) {
+    init(recordable: Recordable, dataStore: RecordingDataStore, playback: PlaybackManagerProtocol, detailMode: DetailMode) {
         self.recordable = recordable
         self.dataStore = dataStore
         self.playback = playback
-        self.recordingStatable = state
         self.detailMode = detailMode
         
     }

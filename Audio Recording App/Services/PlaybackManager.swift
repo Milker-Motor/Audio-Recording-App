@@ -10,11 +10,7 @@ import AVFoundation
 import Combine
 
 final class PlaybackState: ObservableObject {
-    @Published private(set) var isPlaying: Bool = false {
-        didSet {
-            print(isPlaying)
-        }
-    }
+    @Published private(set) var isPlaying: Bool = false
     @Published var currentTime: TimeInterval = 0
 }
 

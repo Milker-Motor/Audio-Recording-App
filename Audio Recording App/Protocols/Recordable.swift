@@ -8,8 +8,15 @@
 import Foundation
 
 protocol Recordable {
+    var state: RecordingState { get }
+    var isRecording: Bool { get }
+//    var onRecordingChange: (Bool) -> Void { get set }
+    
     func startNewRecording() async throws
     func stopRecording() throws -> URL?
     func pauseRecording()
     func resumeRecording()
+    
+    func updateMeters()
+    func averagePower(forChannel channelNumber: Int) -> Float
 }

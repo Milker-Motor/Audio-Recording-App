@@ -20,6 +20,15 @@ final class RecordingManager: ObservableObject {
 }
 
 extension RecordingManager: Recordable {
+    
+    var isRecording: Bool {
+        audioRecorder.isRecording
+    }
+    
+    func updateMeters() {
+        audioRecorder.updateMeters()
+    }
+    
     func startNewRecording() async throws {
 //        Task {
 //            do {
@@ -47,5 +56,9 @@ extension RecordingManager: Recordable {
     func resumeRecording() {
         state.resumeRecording()
         audioRecorder.resumeRecording()
+    }
+    
+    func averagePower(forChannel channelNumber: Int) -> Float {
+        audioRecorder.averagePower(forChannel: channelNumber)
     }
 }
