@@ -32,6 +32,10 @@ final class SidebarViewModel: ObservableObject {
         }
     }
     
+    func append(_ item: RecordingRowItem) {
+        recordings.append(item)
+    }
+    
     func startNewRecording() {
         _onPlay()
     }

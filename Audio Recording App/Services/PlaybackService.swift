@@ -1,5 +1,5 @@
 //
-//  PlaybackManager.swift
+//  PlaybackService.swift
 //  Audio Recording App
 //
 //  Created by Oleksii Lytvynov-Bohdanov on 25.11.2025.

@@ -11,10 +11,12 @@ final class RecordingPanelViewModel: ObservableObject {
     let recordable: Recordable
     private let dataStore: RecordingDataStore
     @Published var uiError: AppError?
+    var onSave: (RecordingRowItem) -> Void
     
-    init(recordable: Recordable, dataStore: RecordingDataStore) {
+    init(recordable: Recordable, dataStore: RecordingDataStore, onSave: @escaping (RecordingRowItem) -> Void) {
         self.recordable = recordable
         self.dataStore = dataStore
+        self.onSave = onSave
     }
     
     var isPaused: Bool {
@@ -67,7 +69,9 @@ extension RecordingPanelViewModel: Recordable {
                 self.uiError = .recordingFailed(error.localizedDescription)
             }
         }
-        try dataStore.insert(LocalRecordingItem(fileURL: url, duration: state.secondsPlayback, format: state.format))
+        let item = try dataStore.insert(LocalRecordingItem(fileURL: url, duration: state.secondsPlayback, format: state.format))
+        
+        onSave(RecordingRowItem(name: item.name, durationInSeconds: Int(item.duration), date: item.createdAt.formatted(date: .abbreviated, time: .shortened), url: url))
         return url
     }
     

@@ -23,7 +23,7 @@ struct Audio_Recording_AppApp: App {
                 .appendingPathComponent("Recordings-store.sqlite")
         )
         let localFeedLoader = LocalRecordingDataLoader(store: store)
-        let recordingManager = RecordingManager(audioRecorder: AudioRecorder(), dataStore: localFeedLoader, state: state)
+        let recordingManager = RecordingService(audioRecorder: AudioRecorder(), dataStore: localFeedLoader, state: state)
         WindowGroup {
             AppContentView(recordable: recordingManager, dataStore: store)
         }
