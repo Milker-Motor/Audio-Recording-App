@@ -28,6 +28,18 @@ final class RecordingPanelViewModel: ObservableObject {
         return String(format: "%02d:%02d", duration / 60, duration % 60)
     }
     
+    var recordingStatus: String {
+        switch recordable.state.state {
+            
+        case .stopped:
+            return "Stopped"
+        case .recording:
+            return "Recording"
+        case .paused:
+            return "Paused"
+        }
+    }
+    
     func togglePauseResumeRecording() {
         if isPaused {
             recordable.resumeRecording()

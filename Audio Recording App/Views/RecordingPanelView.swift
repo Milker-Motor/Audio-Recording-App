@@ -15,8 +15,7 @@ struct RecordingPanelView: View {
                 Text("Recording…").font(.title2).bold()
                 Spacer()
                 HStack(spacing: 6) {
-                    Circle().foregroundStyle(.red).frame(width: 10, height: 10)
-                    Text("LIVE").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                    Text(viewModel.recordingStatus).font(.caption.weight(.semibold)).foregroundStyle(.secondary)
                 }
             }
             Text(viewModel.timer)
