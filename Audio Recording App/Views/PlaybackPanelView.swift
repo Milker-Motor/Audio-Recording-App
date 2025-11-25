@@ -43,11 +43,10 @@ struct PlaybackPanelView: View {
             }
 
             HStack(spacing: 20) {
-                Button {
-                    viewModel.togglePlayPause()
-                } label: {
+                Button(action: viewModel.togglePlayPause, label: {
                     Image(systemName: viewModel.playbackState.isPlaying ? "pause.fill" : "play.fill").font(.title2)
-                }
+                })
+                .buttonStyle(.bordered)
 
                 Button(
                     action: viewModel.stopPlayback,

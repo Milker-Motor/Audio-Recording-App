@@ -10,14 +10,27 @@ import AVFoundation
 import Combine
 
 final class PlaybackState: ObservableObject {
-    @Published var isPlaying: Bool = false
+    @Published private(set) var isPlaying: Bool = false {
+        didSet {
+            print(isPlaying)
+        }
+    }
     @Published var currentTime: TimeInterval = 0
+}
+
+extension PlaybackState: PlaybackManagerProtocol {
+    var state: PlaybackState { self }
+    
+    func load(url: URL) throws { }
+    func play(item: LocalRecordingItem) throws { isPlaying = true }
+    func pause() { isPlaying = false }
+    func stop() { isPlaying = true }
+    func seek(to time: TimeInterval) {}
 }
 
 protocol PlaybackManagerProtocol {
     var state: PlaybackState { get }
-//    var isPlaying: Bool { get }
-//    var currentTime: TimeInterval { get }
+    
     func load(url: URL) throws
     func play(item: LocalRecordingItem) throws
     func pause()
@@ -26,7 +39,7 @@ protocol PlaybackManagerProtocol {
 }
 
 final class PlaybackManager: NSObject, ObservableObject {
-    private var player: AVAudioPlayer? {
+    @Published private var player: AVAudioPlayer? {
         didSet {
             player?.prepareToPlay()
             player?.delegate = self
@@ -45,8 +58,8 @@ final class PlaybackManager: NSObject, ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] _ in
             guard let self = self, let player = self.player else { return }
             self.state.currentTime = player.currentTime
+            
             if !player.isPlaying {
-                self.state.isPlaying = false
                 self.stopTimer()
             }
         }
@@ -60,14 +73,6 @@ final class PlaybackManager: NSObject, ObservableObject {
 
 extension PlaybackManager: PlaybackManagerProtocol {
     
-//    var isPlaying: Bool {
-//        state.isPlaying
-//    }
-//    
-//    var currentTime: TimeInterval {
-//        state.currentTime
-//    }
-    
     func load(url: URL) throws {
         stop()
         player = try AVAudioPlayer(contentsOf: url)
@@ -79,20 +84,21 @@ extension PlaybackManager: PlaybackManagerProtocol {
         guard let url = item.fileURL else { return }
         try load(url: url)
         player?.play()
-        state.isPlaying = true
+        try? state.play(item: item)
         startTimer()
     }
 
     func pause() {
         player?.pause()
-        state.isPlaying = false
+        state.pause()
+        
         stopTimer()
     }
 
     func stop() {
         player?.stop()
         player?.currentTime = 0
-        state.isPlaying = false
+        state.stop()
         state.currentTime = 0
         stopTimer()
         player = nil
@@ -106,8 +112,7 @@ extension PlaybackManager: PlaybackManagerProtocol {
 
 extension PlaybackManager: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        state.isPlaying = false
+        state.stop()
         stopTimer()
     }
 }
-

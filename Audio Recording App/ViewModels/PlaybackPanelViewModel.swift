@@ -6,32 +6,40 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
 final class PlaybackPanelViewModel: ObservableObject {
-    private let playback: PlaybackManagerProtocol
-    let item: RecordingRowItem
-    @Published var playbackState: PlaybackState
-    
+    @Published var isPlaying: Bool
     @Published var playbackPosition: TimeInterval
+    
+    let item: RecordingRowItem
+    
+    private let playback: PlaybackManagerProtocol
     private var cancellable = Set<AnyCancellable>()
     
     init(item: RecordingRowItem, playback: PlaybackManagerProtocol) {
         self.item = item
         self.playback = playback
-        self.playbackPosition = 0
-        self.playbackState = playback.state
+        self.isPlaying = playback.state.isPlaying
+        self.playbackPosition = playback.state.currentTime
         
-        playbackState.$currentTime
+        playback.state.$currentTime
+            .receive(on: RunLoop.main)
             .assign(to: \.playbackPosition, on: self)
             .store(in: &cancellable)
         
-        //playback.$currentTime
+        playback.state.$isPlaying
+            .receive(on: RunLoop.main)
+            .assign(to: \.isPlaying, on: self)
+            .store(in: &cancellable)
         
     }
     
+    var playbackState: PlaybackState { playback.state }
+    
     func togglePlayPause() {
-        if playbackState.isPlaying {
+        if playback.state.isPlaying {
             playback.pause()
         } else {
             try? playback.play(item: LocalRecordingItem(fileURL: item.url, duration: item.durationInSeconds, format: .m4a))
