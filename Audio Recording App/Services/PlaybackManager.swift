@@ -24,7 +24,10 @@ extension PlaybackState: PlaybackManagerProtocol {
     func load(url: URL) throws { }
     func play(item: LocalRecordingItem) throws { isPlaying = true }
     func pause() { isPlaying = false }
-    func stop() { isPlaying = true }
+    func stop() {
+        isPlaying = false
+        currentTime = 0
+    }
     func seek(to time: TimeInterval) {}
 }
 
@@ -41,8 +44,14 @@ protocol PlaybackManagerProtocol {
 final class PlaybackManager: NSObject, ObservableObject {
     @Published private var player: AVAudioPlayer? {
         didSet {
-            player?.prepareToPlay()
-            player?.delegate = self
+            if let player {
+                player.prepareToPlay()
+                player.delegate = self
+                state.currentTime = player.currentTime
+            } else {
+                state.stop()
+                stopTimer()
+            }
         }
     }
     
@@ -76,8 +85,6 @@ extension PlaybackManager: PlaybackManagerProtocol {
     func load(url: URL) throws {
         stop()
         player = try AVAudioPlayer(contentsOf: url)
-        
-        state.currentTime = player?.currentTime ?? 0
     }
 
     func play(item: LocalRecordingItem) throws {
@@ -98,9 +105,6 @@ extension PlaybackManager: PlaybackManagerProtocol {
     func stop() {
         player?.stop()
         player?.currentTime = 0
-        state.stop()
-        state.currentTime = 0
-        stopTimer()
         player = nil
     }
 

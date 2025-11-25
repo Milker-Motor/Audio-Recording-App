@@ -51,7 +51,7 @@ struct PlaybackPanelView: View {
                 Button(
                     action: viewModel.stopPlayback,
                     label: {
-                        Image(systemName: "gobackward").font(.title2)
+                        Image(systemName: "stop.fill").font(.title2)
                     }
                 )
                 Spacer()
