@@ -101,9 +101,11 @@ This is a native macOS application that captures audio from the microphone and a
 
 ## Screenshots / Demo
 
-![Recording Screen](screenshots/recording_screen.png)  
-![Waveform Visualization](screenshots/waveform.png)  
-![Recordings List](screenshots/recordings_list.png)
+![Initial Screen](screenshots/Initial_screen.png)  
+![Share Action](screenshots/Share_action.png)  
+![Playback Selected Audio](screenshots/Playback_selected_audio.png)
+![Recording Active](screenshots/Recording_active.png)
+![Recording Paused](screenshots/Recording_paused.png)
 
 ---
 
